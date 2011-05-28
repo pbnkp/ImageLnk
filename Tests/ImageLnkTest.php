@@ -262,4 +262,25 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_impress1() {
+    $url = 'http://game.watch.impress.co.jp/img/gmw/docs/448/930/html/psn01.jpg.html';
+    $title = '[拡大画像] SCEJ、PlayStation NetworkとQriocityのサービスを5月28日から再開。安全管理措置を導入し、ゲームコンテンツの無償提供も';
+    $imageurls = array(
+      'http://game.watch.impress.co.jp/img/gmw/docs/448/930/psn01.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_tumblr1() {
+    $url = 'http://titlebot.tumblr.com/post/5544499061';
+    $title = '<p>ネコと和解せよ</p>';
+    $imageurls = array(
+      'http://26.media.tumblr.com/tumblr_llal1ttZ7W1qfqa6no1_400.jpg',
+      );
+    $referer = 'http://titlebot.tumblr.com/api/read?id=5544499061';
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
 }
