@@ -8,6 +8,9 @@
   </head>
   <body style="text-align: center; margin: 0 auto; padding: 0; width: 800px; font-size: 26px">
     <h1>ImageLnk</h1>
+    <div style="font-size: 16px; color: #444; margin: 0 0 40px 0">
+      You can get image URLs from image page HTML.<br />
+    </div>
 
     <form action="api/get" method="get">
       <div style="color: #000">
@@ -16,11 +19,11 @@
       </div>
 
       <div style="margin: 20px 0">
-        URL: <input name="url" style="width: 400px; font-size: 26px" placeholder="http://example.com" />
+        URL: <input name="url" style="width: 400px; font-size: 26px; border: 1px solid #006; background: #ffc;" placeholder="http://example.com" value="http://twitpic.com/53l2xg" />
       </div>
 
       <div>
-        <input type="submit" value="Get image information" style="font-size: 26px" />
+        <input type="submit" value="Get image information as JSON" style="font-size: 26px" />
       </div>
     </form>
 
