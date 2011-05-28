@@ -26,7 +26,7 @@ class ImageLnkEngine_twitpic {
     foreach (ImageLnkHelper::scanSingleTag('img', $html) as $img) {
       if (preg_match('/"(http:\/\/s3\.amazonaws\.com\/twitpic\/photos\/full\/.+?)"/', $img, $m)) {
         $response->addImageURL($m[1]);
-        if (preg_match('/alt="(.+?)"/', $img, $m)) {
+        if (preg_match('/alt="(.+?)"/s', $img, $m)) {
           $response->setTitle($m[1]);
         }
         break;
