@@ -2,7 +2,7 @@
 
 class ImageLnkHelper {
   public static function scanSingleTag($name, $html) {
-    if (preg_match_all("/<{$name} .+?>/", $html, $matches) === FALSE) return array();
+    if (preg_match_all("/<{$name} .+?>/s", $html, $matches) === FALSE) return array();
     return $matches[0];
   }
 
@@ -17,13 +17,13 @@ class ImageLnkHelper {
   public static function setResponseFromOpenGraph($response, $html) {
     foreach (self::scanSingleTag('meta', $html) as $meta) {
       if (preg_match('/ property="og:title"/', $meta)) {
-        if (preg_match('/ content="(.+?)"/', $meta, $matches)) {
+        if (preg_match('/ content="(.+?)"/is', $meta, $matches)) {
           $response->setTitle($matches[1]);
         }
       }
 
       if (preg_match('/ property="og:image"/', $meta)) {
-        if (preg_match('/ content="(.+?)"/', $meta, $matches)) {
+        if (preg_match('/ content="(.+?)"/is', $meta, $matches)) {
           $response->addImageURL($matches[1]);
         }
       }
