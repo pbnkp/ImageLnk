@@ -37,7 +37,7 @@ class ImageLnk {
     $sites = array();
     foreach (ImageLnkEngine::getEngines() as $classname) {
       if ($classname::sitename) {
-        $sites[] = array('name' => $classname::sitename);
+        $sites[] = $classname::sitename;
       }
     }
     sort($sites);

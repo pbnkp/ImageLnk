@@ -5,7 +5,7 @@ require_once sprintf('%s/../lib/ImageLnk.php', dirname(__FILE__));
 class ImageLnkCLI_sites {
   public function control() {
     foreach (ImageLnk::getSites() as $s) {
-      print $s['name'] . "\n";
+      print $s . "\n";
     }
   }
 }
