@@ -1,0 +1,7 @@
+# Don't edit this file.
+# Change values by config.yaml
+
+cache_directory: /var/tmp/ImageLnk
+cache_expire_minutes: 5
+auth_pixiv_id: imagelnk
+auth_pixiv_password: XXXXXXXX

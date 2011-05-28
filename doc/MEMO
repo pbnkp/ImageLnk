@@ -1,0 +1,4 @@
+http://pear.php.net/package/HTTP_Request2/
+
+pear channel-discover pear.symfony-project.com
+pear install symfony/YAML

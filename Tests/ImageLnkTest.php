@@ -1,0 +1,247 @@
+<?php //-*- Mode: php; indent-tabs-mode: nil; -*-
+
+require_once 'PHPUnit/Framework.php';
+require_once sprintf('%s/../lib/ImageLnk.php', dirname(__FILE__));
+
+class ImageLnkTest extends PHPUnit_Framework_TestCase {
+  function __construct() {
+    ImageLnkConfig::set('cache_directory', 'tmp');
+    ImageLnkConfig::set('cache_expire_minutes', 30);
+  }
+
+  private function check_response($url, $title, $imageurls, $referer = NULL) {
+    $response = ImageLnk::getImageInfo($url);
+
+    $expect = $title;
+    $actual = $response->getTitle();
+    $this->assertSame($expect, $actual);
+
+    $expect = $imageurls;
+    $actual = $response->getImageURLs();
+    $this->assertSame($expect, $actual);
+
+    if ($referer == NULL) {
+      $referer = $url;
+    }
+    $expect = $referer;
+    $actual = $response->getReferer();
+    $this->assertSame($expect, $actual);
+  }
+
+  function test_ameblo1() {
+    $url = 'http://ameblo.jp/hakasetoiu-ikimono/image-10430643614-10370336976.html';
+    $title = '第４話：Beautiful nameの画像 | 研究者マンガ「ハカセといふ生物」';
+    $imageurls = array(
+      'http://stat001.ameba.jp/user_images/20100109/22/hakasetoiu-ikimono/5f/c7/j/o0360050010370336976.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_ameblo2() {
+    $url = 'http://s.ameblo.jp/hakasetoiu-ikimono/image-10430643614-10370336976.html';
+    $title = '第４話：Beautiful nameの画像 | 研究者マンガ「ハカセといふ生物」';
+    $imageurls = array(
+      'http://stat001.ameba.jp/user_images/20100109/22/hakasetoiu-ikimono/5f/c7/j/o0360050010370336976.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_ascii1() {
+    $url = 'http://ascii.jp/elem/000/000/581/581329/img.html';
+    $title = 'ジャストシステム、Office互換ソフト市場に参入';
+    $imageurls = array(
+      'http://ascii.jp/elem/000/000/581/581329/06_c_800x531.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_akibablog1() {
+    $url = 'http://node3.img3.akibablog.net/11/may/1/real-qb/119.html';
+    $title = '[画像]:ゲーマーズ本店にリアルキュゥべえ　「どうみても不審者ｗｗｗ」';
+    $imageurls = array(
+      'http://node3.img3.akibablog.net/11/may/1/real-qb/119.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_hatena1() {
+    $url = 'http://f.hatena.ne.jp/tekezo/20090625215759';
+    $title = 'タイトルです。';
+    $imageurls = array(
+      'http://cdn-ak.f.st-hatena.com/images/fotolife/t/tekezo/20090625/20090625215759.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_mycom1() {
+    $url = 'http://journal.mycom.co.jp/photo/articles/2011/03/07/appinventor/images/006l.jpg';
+    $title = '拡大画像 006 | 【ハウツー】経験ゼロでも大丈夫!? App Inventorで始めるAndroidアプリ開…… | マイコミジャーナル';
+    $imageurls = array(
+      'http://j.mycom.jp/articles/2011/03/07/appinventor/images/006l.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_lockerz1() {
+    $url = 'http://lockerz.com/s/71921454';
+    $title = "Lockerz.com .:. Butter_nekojump's Photos -";
+    $imageurls = array(
+      'http://c0013619.cdn1.cloudfiles.rackspacecloud.com/x2_4496f2e',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_dengeki1() {
+    $url = 'http://news.dengeki.com/elem/000/000/364/364901/img.html';
+    $title = '【App通信】iPad 2が満を持して発売！ 美少女姉妹による萌え系紙芝居アプリも - 電撃オンライン';
+    $imageurls = array(
+      'http://news.dengeki.com/elem/000/000/364/364901/c20110502_app_18_cs1w1_347x720.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_twitpic1() {
+    $url = 'http://twitpic.com/1yggai';
+    $response = ImageLnk::getImageInfo($url);
+
+    $title = '良くお休みのようで';
+    $actual = $response->getTitle();
+    $this->assertSame($title, $actual);
+
+    $referer = 'http://twitpic.com/1yggai/full';
+    $actual = $response->getReferer();
+    $this->assertSame($referer, $actual);
+
+    foreach ($response->getImageURLs() as $imageurl) {
+      $expect = 1;
+      $actual = preg_match('/^http:\/\/s3\.amazonaws\.com\/twitpic\/photos\/full\/118340730\.jpg/', $imageurl);
+      $this->assertSame($expect, $actual);
+    }
+  }
+
+  // ======================================================================
+  function test_itmedia1() {
+    $url = 'http://image.itmedia.co.jp/l/im/news/articles/1102/08/l_ah_echo4.jpg';
+    $title = '京セラ、デュアルスクリーンのAndroidスマートフォン「Echo」発表';
+    $imageurls = array(
+      'http://image.itmedia.co.jp/news/articles/1102/08/l_ah_echo4.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_nicovideo1() {
+    $url = 'http://www.nicovideo.jp/watch/sm12589060';
+    $title = '中野テルヲ　うっかり楽曲担当してしまったのであろうCM ‐ ニコニコ動画(原宿)';
+    $imageurls = array(
+      'http://tn-skr1.smilevideo.jp/smile?i=12589060',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_pixiv1() {
+    $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
+    $title = '凛として鼻血';
+    $imageurls = array(
+      'http://img11.pixiv.net/img/taishi22/10461576_m.png',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_pixiv2() {
+    $url = 'http://www.pixiv.net/member_illust.php?mode=big&illust_id=10461576';
+    $title = '「凛として鼻血」/「柴系」のイラスト [pixiv]';
+    $imageurls = array(
+      'http://img11.pixiv.net/img/taishi22/10461576.png',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_pixiv3() {
+    $url = 'http://www.pixiv.net/member_illust.php?mode=manga&illust_id=18741440';
+    $title = 'ははのひとってもマミさん【まどか☆マギカ】';
+    $imageurls = array(
+      'http://img11.pixiv.net/img/taishi22/18741440_p0.png',
+      'http://img11.pixiv.net/img/taishi22/18741440_p1.png',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_pixiv4() {
+    $url = 'http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=18741440&page=1';
+    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $imageurls = array(
+      'http://img11.pixiv.net/img/taishi22/18741440_big_p1.png',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_yaplog1() {
+    $url = 'http://yaplog.jp/atsukana/image/236/306';
+    $title = '自分大好き日記(笑)の画像(2/5) :: 菜っ葉の『菜』！！';
+    $imageurls = array(
+      'http://img.yaplog.jp/img/07/pc/a/t/s/atsukana/0/306_large.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_youtube1() {
+    $url = 'http://www.youtube.com/watch?v=Tlmho7SY-ic&feature=player_embedded';
+    $title = 'YouTube Turns Five!';
+    $imageurls = array(
+      'http://i1.ytimg.com/vi/Tlmho7SY-ic/default.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_yfrog1() {
+    $url = 'http://yfrog.com/1xj3nvj';
+    $title = 'yfrog Photo : http://yfrog.com/1xj3nvj Shared by atty303';
+    $imageurls = array(
+      'http://img69.yfrog.com/img69/7185/j3nv.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_photozou1() {
+    $url = 'http://photozou.jp/photo/show/744707/79931926';
+    $title = 'テスト裏にキュゥべぇ描いた... - 写真共有サイト「フォト蔵」';
+    $imageurls = array(
+      'http://art22.photozou.jp/bin/photo/79931926/org.v1306550138.bin?download=yes',
+      );
+    $referer = 'http://photozou.jp/photo/photo_only/744707/79931926';
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
+
+  function test_photozou2() {
+    $url = 'http://photozou.jp/photo/photo_only/744707/79931926?size=450';
+    $title = 'テスト裏にキュゥべぇ描いた... - 写真共有サイト「フォト蔵」';
+    $imageurls = array(
+      'http://art22.photozou.jp/bin/photo/79931926/org.v1306550138.bin?download=yes',
+      );
+    $referer = 'http://photozou.jp/photo/photo_only/744707/79931926';
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
+
+  // ======================================================================
+  function test_twipple1() {
+    $url = 'http://p.twipple.jp/6FGRA';
+    $title = 'オレもマジでつぶやき内容に注意しよう&h... : ついっぷるフォト';
+    $imageurls = array(
+      'http://p.twipple.jp/data/6/F/G/R/A.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+}
