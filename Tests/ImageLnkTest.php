@@ -217,22 +217,40 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_photozou1() {
     $url = 'http://photozou.jp/photo/show/744707/79931926';
+    $response = ImageLnk::getImageInfo($url);
+
     $title = 'テスト裏にキュゥべぇ描いた... - 写真共有サイト「フォト蔵」';
-    $imageurls = array(
-      'http://art22.photozou.jp/bin/photo/79931926/org.v1306550138.bin?download=yes',
-      );
+    $actual = $response->getTitle();
+    $this->assertSame($title, $actual);
+
     $referer = 'http://photozou.jp/photo/photo_only/744707/79931926';
-    $this->check_response($url, $title, $imageurls, $referer);
+    $actual = $response->getReferer();
+    $this->assertSame($referer, $actual);
+
+    foreach ($response->getImageURLs() as $imageurl) {
+      $expect = 1;
+      $actual = preg_match('/^http:\/\/art22\.photozou\.jp\/bin\/photo\/79931926\/org/', $imageurl);
+      $this->assertSame($expect, $actual);
+    }
   }
 
   function test_photozou2() {
     $url = 'http://photozou.jp/photo/photo_only/744707/79931926?size=450';
+    $response = ImageLnk::getImageInfo($url);
+
     $title = 'テスト裏にキュゥべぇ描いた... - 写真共有サイト「フォト蔵」';
-    $imageurls = array(
-      'http://art22.photozou.jp/bin/photo/79931926/org.v1306550138.bin?download=yes',
-      );
+    $actual = $response->getTitle();
+    $this->assertSame($title, $actual);
+
     $referer = 'http://photozou.jp/photo/photo_only/744707/79931926';
-    $this->check_response($url, $title, $imageurls, $referer);
+    $actual = $response->getReferer();
+    $this->assertSame($referer, $actual);
+
+    foreach ($response->getImageURLs() as $imageurl) {
+      $expect = 1;
+      $actual = preg_match('/^http:\/\/art22\.photozou\.jp\/bin\/photo\/79931926\/org/', $imageurl);
+      $this->assertSame($expect, $actual);
+    }
   }
 
   // ======================================================================
