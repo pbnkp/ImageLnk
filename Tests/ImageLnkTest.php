@@ -311,8 +311,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $imageurls = array(
       'http://26.media.tumblr.com/tumblr_llal1ttZ7W1qfqa6no1_400.jpg',
       );
-    $referer = 'http://titlebot.tumblr.com/api/read?id=5544499061';
-    $this->check_response($url, $title, $imageurls, $referer);
+    $this->check_response($url, $title, $imageurls);
   }
 
   // ======================================================================

@@ -11,10 +11,10 @@ class ImageLnkEngine_tumblr {
     $baseurl = $matches[1];
     $id = $matches[2];
 
-    $url = $baseurl . 'api/read?id=' . $id;
+    $apiurl = $baseurl . 'api/read?id=' . $id;
 
     // ----------------------------------------
-    $data = ImageLnkCache::get($url);
+    $data = ImageLnkCache::get($apiurl);
     $html = $data['data'];
 
     $response = new ImageLnkResponse();
