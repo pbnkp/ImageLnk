@@ -12,6 +12,7 @@ class ImageLnkEngine_test {
 
     // ----------------------------------------
     $response = new ImageLnkResponse();
+    $response->setReferer($url);
 
     switch ($command) {
       case 'malformed_utf8':
