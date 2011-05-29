@@ -4,7 +4,7 @@ class ImageLnkEngine_wikipedia {
   const sitename = 'http://www.wikipedia.org/';
 
   public static function handle($url) {
-    if (! preg_match('/^http:\/\/[^\/]+\.wikipedia\.org\/wiki\/File:.+/', $url, $matches)) {
+    if (! preg_match('/^http:\/\/[^\/]+\.wikipedia\.org\/wiki\/.+/', $url, $matches)) {
       return FALSE;
     }
 
@@ -15,12 +15,12 @@ class ImageLnkEngine_wikipedia {
     $response = new ImageLnkResponse();
     $response->setReferer($url);
 
-    if (preg_match('/id="fileinfotpl_desc".+?<td>(.*?)<\/td>/s', $html, $matches)) {
-      $response->setTitle(trim($matches[1]));
-    }
-
     if (preg_match('/ class="fullImageLink".+?href="(.+?)"/', $html, $matches)) {
       $response->addImageURL($matches[1]);
+
+      if (preg_match('/id="fileinfotpl_desc".+?<td>(.*?)<\/td>/s', $html, $matches)) {
+        $response->setTitle(strip_tags(trim($matches[1])));
+      }
     }
 
     return $response;
