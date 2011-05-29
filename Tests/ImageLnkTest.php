@@ -28,6 +28,17 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->assertSame($expect, $actual);
   }
 
+  // ======================================================================
+  function test_test1() {
+    $url = 'test://malformed_utf8';
+    $title = 'あいうえおかき';
+    $imageurls = array(
+      'malformed_utf8',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
   function test_ameblo1() {
     $url = 'http://ameblo.jp/hakasetoiu-ikimono/image-10430643614-10370336976.html';
     $title = '第４話：Beautiful nameの画像 | 研究者マンガ「ハカセといふ生物」';
