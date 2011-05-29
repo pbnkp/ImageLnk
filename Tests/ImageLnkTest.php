@@ -314,4 +314,24 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $referer = 'http://titlebot.tumblr.com/api/read?id=5544499061';
     $this->check_response($url, $title, $imageurls, $referer);
   }
+
+  // ======================================================================
+  function test_picasa1() {
+    $url = 'https://picasaweb.google.com/100474803495183280561/CatMagic#5516583424278584290';
+    $title = 'Picasa Web Albums - 触れる猫カフェCatmagic@新... - Cat Magic';
+    $imageurls = array(
+      'http://lh6.ggpht.com/-aLmbGb0QF3k/TI7XZXHu2-I/AAAAAAAAAFY/KVW0kHhTe44/002.jpg',
+      );
+    $referer = 'http://picasaweb.google.com/100474803495183280561/CatMagic#5516583424278584290';
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
+
+  function test_picasa2() {
+    $url = 'http://picasaweb.google.com/100474803495183280561/CatMagic#5516583424278584290';
+    $title = 'Picasa Web Albums - 触れる猫カフェCatmagic@新... - Cat Magic';
+    $imageurls = array(
+      'http://lh6.ggpht.com/-aLmbGb0QF3k/TI7XZXHu2-I/AAAAAAAAAFY/KVW0kHhTe44/002.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
