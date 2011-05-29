@@ -343,4 +343,14 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_instagram1() {
+    $url = 'http://instagr.am/p/E6VjC/';
+    $title = 'yfryer\'s photo: &ldquo;おはよう&rdquo;';
+    $imageurls = array(
+      'http://images.instagram.com/media/2011/05/29/9c4d66f169a24764961977326e2fc1cf_7.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
