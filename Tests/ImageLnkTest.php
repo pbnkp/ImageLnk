@@ -41,20 +41,40 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_ameblo1() {
     $url = 'http://ameblo.jp/hakasetoiu-ikimono/image-10430643614-10370336976.html';
+    $response = ImageLnk::getImageInfo($url);
+
     $title = '第４話：Beautiful nameの画像 | 研究者マンガ「ハカセといふ生物」';
-    $imageurls = array(
-      'http://stat001.ameba.jp/user_images/20100109/22/hakasetoiu-ikimono/5f/c7/j/o0360050010370336976.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
+    $actual = $response->getTitle();
+    $this->assertSame($title, $actual);
+
+    $referer = $url;
+    $actual = $response->getReferer();
+    $this->assertSame($referer, $actual);
+
+    foreach ($response->getImageURLs() as $imageurl) {
+      $expect = 1;
+      $actual = preg_match('/http:\/\/stat.*\.ameba\.jp\/user_images\/20100109\/22\/hakasetoiu-ikimono\/5f\/c7\/j\/o0360050010370336976\.jpg/', $imageurl);
+      $this->assertSame($expect, $actual);
+    }
   }
 
   function test_ameblo2() {
     $url = 'http://s.ameblo.jp/hakasetoiu-ikimono/image-10430643614-10370336976.html';
+    $response = ImageLnk::getImageInfo($url);
+
     $title = '第４話：Beautiful nameの画像 | 研究者マンガ「ハカセといふ生物」';
-    $imageurls = array(
-      'http://stat001.ameba.jp/user_images/20100109/22/hakasetoiu-ikimono/5f/c7/j/o0360050010370336976.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
+    $actual = $response->getTitle();
+    $this->assertSame($title, $actual);
+
+    $referer = $url;
+    $actual = $response->getReferer();
+    $this->assertSame($referer, $actual);
+
+    foreach ($response->getImageURLs() as $imageurl) {
+      $expect = 1;
+      $actual = preg_match('/http:\/\/stat.*\.ameba\.jp\/user_images\/20100109\/22\/hakasetoiu-ikimono\/5f\/c7\/j\/o0360050010370336976\.jpg/', $imageurl);
+      $this->assertSame($expect, $actual);
+    }
   }
 
   // ======================================================================
