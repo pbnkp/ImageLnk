@@ -8,16 +8,22 @@ class ImageLnkResponse {
   private static function normalize($string) {
     return @iconv("UTF-8", "UTF-8//IGNORE", $string);
   }
+  private static function decode($string) {
+    $string = self::normalize($string);
+    $string = html_entity_decode($string, ENT_QUOTES, 'UTF-8');
+    $string = self::normalize($string);
+    return $string;
+  }
 
   public function setTitle($newvalue) {
-    $this->title_ = htmlspecialchars_decode(self::normalize($newvalue));
+    $this->title_ = self::decode($newvalue);
   }
   public function getTitle() {
     return $this->title_;
   }
 
   public function addImageURL($newvalue) {
-    $this->imageurls_[] = htmlspecialchars_decode(self::normalize($newvalue));
+    $this->imageurls_[] = self::decode($newvalue);
   }
   public function getImageURLs() {
     return $this->imageurls_;

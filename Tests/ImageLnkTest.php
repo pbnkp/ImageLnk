@@ -337,7 +337,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_wikipedia1() {
     $url = 'http://en.wikipedia.org/wiki/File:PANSDeinonychus.JPG';
-    $title = 'English: &#160;Deinonychus antirrhopus skeleton, Philadelphia Academy of Natural Sciences';
+    $title = 'English:  Deinonychus antirrhopus skeleton, Philadelphia Academy of Natural Sciences';
     $imageurls = array(
       'http://upload.wikimedia.org/wikipedia/en/e/e6/PANSDeinonychus.JPG',
       );
@@ -347,7 +347,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_instagram1() {
     $url = 'http://instagr.am/p/E6VjC/';
-    $title = 'yfryer\'s photo: &ldquo;おはよう&rdquo;';
+    $title = 'yfryer\'s photo: “おはよう”';
     $imageurls = array(
       'http://images.instagram.com/media/2011/05/29/9c4d66f169a24764961977326e2fc1cf_7.jpg',
       );
