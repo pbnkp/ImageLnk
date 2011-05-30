@@ -8,13 +8,12 @@ You can get image URLs from image page HTML.
 For example:
 
 <pre>
-
 submit:
-  url: http://twitpic.com/XXXXXXXX
+  url: http://yfrog.com/gyviz6j
 
 result:
-  title: The title of twitpic page.
-  referer: http://twitpic.com/XXXXXXXX/full
-  imageurls: http://s3.amazonaws.com/twitpic/photos/full/118340730.jpg&.....
-
+  pageurl:   http://yfrog.com/gyviz6j
+  title:     yfrog Photo : http://yfrog.com/gyviz6j Shared by ImageLnk
+  referer:   http://yfrog.com/gyviz6j
+  imageurls: http://a.yfrog.com/img610/5607/viz6.jpg
 </pre>
