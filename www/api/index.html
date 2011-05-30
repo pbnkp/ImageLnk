@@ -14,30 +14,72 @@
       You can call ImageLnk functions via HTTP.
 
       <h2>api/get</h2>
-      <div style="margin-left: 20px">
+      <div class="api_description">
+        Getting image URLs from image page HTML.
+
+        <h3>URL:</h3>
+        http://imagelnk.pqrs.org/api/get
+
+        <h3>Parameters:</h3>
+        <table><tbody>
+          <tr>
+            <th>url</th>
+            <td>URL of the image page</td>
+          </tr>
+        </tbody></table>
+
+        <h3>Response (JSON):</h3>
+        <table><tbody>
+          <tr>
+            <th>pageurl</th>
+            <td>URL of the image page</td>
+          </tr>
+          <tr>
+            <th>title</th>
+            <td>The title of image page</td>
+          </tr>
+          <tr>
+            <th>referer</th>
+            <td>Referer which you should set when you access the image URL.</td>
+          </tr>
+          <tr>
+            <th>imageurls</th>
+            <td>URLs of the image file.</td>
+          </tr>
+        </tbody></table>
+
+        <h3>Example:</h3>
+        Request URL: <a href="http://imagelnk.vm.pqrs.org/api/get?url=http%3A%2F%2Fyfrog.com%2Fgyviz6j">http://imagelnk.vm.pqrs.org/api/get?url=http%3A%2F%2Fyfrog.com%2Fgyviz6j</a><br />
+        Response:
+        <div class="pre">{</div>
+        <div class="pre">  "pageurl":"http://yfrog.com/gyviz6j",</div>
+        <div class="pre">  "title":"yfrog Photo : http://yfrog.com/gyviz6j Shared by ImageLnk",</div>
+        <div class="pre">  "referer":"http://yfrog.com/gyviz6j",</div>
+        <div class="pre">  "imageurls":["http://a.yfrog.com/img610/5607/viz6.jpg"]</div>
+        <div class="pre">}</div>
       </div>
 
       <h2>api/sites</h2>
       <div class="api_description">
         Getting web site URLs which are supported by ImageLnk.
 
-        <h3>URL</h3>
-        <a href="http://imagelnk.pqrs.org/api/sites">http://imagelnk.pqrs.org/api/sites</a>
+        <h3>URL:</h3>
+        http://imagelnk.pqrs.org/api/sites
 
-        <h3>Parameters</h3>
+        <h3>Parameters:</h3>
         Nothing.
 
-        <h3>Result</h3>
+        <h3>Response (JSON):</h3>
         <table><tbody>
           <tr>
-            <th>sites:</th>
+            <th>sites</th>
             <td>An array of web site URLs</td>
           </tr>
         </tbody></table>
 
-        <h3>Example</h3>
+        <h3>Example:</h3>
         Request URL: <a href="http://imagelnk.pqrs.org/api/sites">http://imagelnk.pqrs.org/api/sites</a><br />
-        Result:
+        Response:
         <div class="pre">{                                       </div>
         <div class="pre">  "sites":["http://instagr.am/",        </div>
         <div class="pre">           "http://lockerz.com/",       </div>

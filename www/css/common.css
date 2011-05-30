@@ -103,7 +103,8 @@ input[type=text] {
 }
 
 .api_description {
-    margin-left: 20px;
+    margin-left: 40px;
+    font-size: 16px;
 }
 
 .api_description table {
