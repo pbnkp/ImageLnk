@@ -26,7 +26,7 @@ h1 {
     padding: 0;
 }
 
-form {
+#showinfo_form {
     width: 700px;
     margin: 0 auto;
     padding: 10px;
