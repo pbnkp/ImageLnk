@@ -10,14 +10,27 @@ body {
     border-color: black;
 
     font-family: serif;
-    font-size: 26px;
+    font-size: 20px;
     background-color: #fff;
     color: #000;
     text-align: center;
 }
 
+.small {
+    font-size: 16px;
+}
+
 h1 {
     font-size: 52px;
+    margin: 20px 0 10px 0;
+    padding: 0;
+}
+
+form {
+    width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 input[type=text] {
@@ -33,7 +46,7 @@ input[type=text] {
 }
 
 #showinfo_result table {
-    width: 600px;
+    width: 650px;
     margin: 0 auto;
     border-width: 0 1px;
     border-color: black;
@@ -46,7 +59,6 @@ input[type=text] {
     padding: 5px;
     text-align: right;
     vertical-align: top;
-    font-size: 20px;
     font-weight: bold;
 }
 
@@ -54,7 +66,6 @@ input[type=text] {
     padding: 5px;
     text-align: left;
     vertical-align: top;
-    font-size: 20px;
     white-space: pre-wrap;
     word-break: break-all;
 }

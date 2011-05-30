@@ -9,7 +9,7 @@
   </head>
   <body>
     <h1>ImageLnk</h1>
-    <div style="font-size: 16px; color: #444; margin: 0 0 40px 0">
+    <div class="small" style="color: #444; margin: 0 0 20px 0">
       You can get image URLs from image page HTML.<br />
     </div>
 
@@ -23,7 +23,7 @@
 
       <div>
         <div style="margin: 10px 0">
-          <input type="button" id="showinfo" value="Get image information" style="font-size: 20px" />
+          <input type="button" id="showinfo" value="Get image information" />
         </div>
 
         <div id="showinfo_result">
@@ -49,14 +49,18 @@
       </div>
     </form>
 
-    <div style="width: 100%; border-top: 1px solid gray; margin-top: 40px;">
+    <div style="margin-top: 20px;">
+      <a href="api/">ImageLnk API</a>
+    </div>
+
+    <div style="width: 100%; margin-top: 40px;">
       Sites
 
-      <div style="width: 50%; height: 200px; overflow: auto; border: 1px solid gray; margin: 10px auto; font-size: 20px" id="sites">
+      <div class="small" style="width: 50%; height: 200px; overflow: auto; border: 1px solid gray; margin: 10px auto;" id="sites">
       </div>
     </div>
 
-    <div style="width: 100%; border-top: 1px solid gray; margin-top: 20px; text-align: right; font-size: 16px">
+    <div class="small" style="width: 100%; border-top: 1px solid gray; margin-top: 20px; text-align: right;">
       <div style="padding: 3px">
         <a href="https://github.com/tekezo/ImageLnk/">github</a>
         <br />
