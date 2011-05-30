@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_test {
+  const language = NULL;
   const sitename = NULL;
 
   public static function handle($url) {

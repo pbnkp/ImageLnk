@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_wikipedia {
+  const language = NULL;
   const sitename = 'http://www.wikipedia.org/';
 
   public static function handle($url) {

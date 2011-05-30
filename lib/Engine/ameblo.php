@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_ameblo {
+  const language = 'Japanese';
   const sitename = 'http://ameblo.jp/';
 
   public static function handle($url) {

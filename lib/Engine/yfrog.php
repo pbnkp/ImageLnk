@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_yfrog {
+  const language = NULL;
   const sitename = 'http://yfrog.com/';
 
   public static function handle($url) {

@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_pixiv {
+  const language = NULL;
   const sitename = 'http://www.pixiv.net/';
 
   public static function handle($url) {

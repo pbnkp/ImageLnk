@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_mycom {
+  const language = 'Japanese';
   const sitename = 'http://journal.mycom.co.jp/';
 
   public static function handle($url) {

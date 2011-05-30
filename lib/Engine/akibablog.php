@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_akibablog {
+  const language = 'Japanese';
   const sitename = 'http://blog.livedoor.jp/geek/';
 
   public static function handle($url) {

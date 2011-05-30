@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_photozou {
+  const language = 'Japanese';
   const sitename = 'http://photozou.jp/';
 
   public static function handle($url) {

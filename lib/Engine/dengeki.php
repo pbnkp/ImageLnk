@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_dengeki {
+  const language = 'Japanese';
   const sitename = 'http://news.dengeki.com/';
 
   public static function handle($url) {

@@ -1,7 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_instagram {
-
+  const language = NULL;
   const sitename = 'http://instagr.am/';
 
   public static function handle($url) {

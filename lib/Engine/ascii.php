@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_ascii {
+  const language = 'Japanese';
   const sitename = 'http://ascii.jp/';
 
   public static function handle($url) {

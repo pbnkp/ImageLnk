@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_twitpic {
+  const language = NULL;
   const sitename = 'http://twitpic.com/';
 
   public static function handle($url) {

@@ -34,13 +34,19 @@ class ImageLnk {
   }
 
   public static function getSites() {
-    $sites = array();
+    $sites_generic  = array();
+    $sites_domestic = array();
     foreach (ImageLnkEngine::getEngines() as $classname) {
-      if ($classname::sitename) {
-        $sites[] = $classname::sitename;
+      if (! $classname::sitename) continue;
+
+      if ($classname::language) {
+        $sites_domestic[] = $classname::sitename;
+      } else {
+        $sites_generic[] = $classname::sitename;
       }
     }
-    sort($sites);
-    return $sites;
+    sort($sites_generic);
+    sort($sites_domestic);
+    return array_merge($sites_generic, $sites_domestic);
   }
 }

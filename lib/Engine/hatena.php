@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_hatena {
+  const language = 'Japanese';
   const sitename = 'http://f.hatena.ne.jp/';
 
   public static function handle($url) {

@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_youtube {
+  const language = NULL;
   const sitename = 'http://www.youtube.com/';
 
   public static function handle($url) {

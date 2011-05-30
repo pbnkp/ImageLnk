@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_yaplog {
+  const language = 'Japanese';
   const sitename = 'http://www.yaplog.jp/';
 
   public static function handle($url) {

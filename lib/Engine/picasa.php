@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_picasa {
+  const language = NULL;
   const sitename = 'http://picasa.google.com/';
 
   public static function handle($url) {

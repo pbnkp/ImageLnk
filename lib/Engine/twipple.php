@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_twipple {
+  const language = 'Japanese';
   const sitename = 'http://twipple.jp/';
 
   public static function handle($url) {

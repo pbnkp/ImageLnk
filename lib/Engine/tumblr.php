@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_tumblr {
+  const language = NULL;
   const sitename = 'http://www.tumblr.com/';
 
   public static function handle($url) {

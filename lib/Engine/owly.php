@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_owly {
+  const language = NULL;
   const sitename = 'http://ow.ly/';
 
   public static function handle($url) {

@@ -1,6 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_itmedia {
+  const language = 'Japanese';
   const sitename = 'http://www.itmedia.co.jp/';
 
   public static function handle($url) {
