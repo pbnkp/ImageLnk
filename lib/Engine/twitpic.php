@@ -12,8 +12,7 @@ class ImageLnkEngine_twitpic {
 
     // ----------------------------------------
     if (! preg_match('/\/full$/', $url)) {
-      $fullurl = "http://twitpic.com/$id/full";
-      return self::handle($fullurl);
+      $url = "http://twitpic.com/$id/full";
     }
 
     // ----------------------------------------
