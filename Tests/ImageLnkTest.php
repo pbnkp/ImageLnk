@@ -353,4 +353,14 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_niconico1() {
+    $url = 'http://video.niconico.com/watch/http://www.nicovideo.jp/watch/sm11187442';
+    $title = '【弾いてみた】　ウルトラの奇跡　【 ○（ 0|0）o 】';
+    $imageurls = array(
+      'http://tn-skr3.smilevideo.jp/smile?i=11187442',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
