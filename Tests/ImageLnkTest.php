@@ -363,4 +363,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_owly1() {
+    $url = 'http://ow.ly/i/bG2H';
+    $title = 'Ow.ly - image uploaded by @jossfat (Joss Fat): ロシア寿命飲酒量曲線.jpg';
+    $imageurls = array(
+      'http://static.ow.ly/photos/original/bG2H.jpg',
+      );
+    $referer = 'http://ow.ly/i/bG2H/original';
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
 }
