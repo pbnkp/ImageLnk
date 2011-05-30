@@ -3,31 +3,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/common.css" type="text/css" media="all" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <title>ImageLnk - Get image URLs from image page HTML</title>
   </head>
-  <body style="text-align: center; margin: 0 auto; padding: 0; width: 800px; font-size: 26px; border-width: 0 1px; border-style: solid; border-color: gray;">
-    <h1 style="font-size: 52px">ImageLnk</h1>
+  <body>
+    <h1>ImageLnk</h1>
     <div style="font-size: 16px; color: #444; margin: 0 0 40px 0">
       You can get image URLs from image page HTML.<br />
     </div>
 
     <form action="api/get" method="get">
-      <div style="color: #000">
-        Enter the URL of image page.<br />
-        (For example: http://yfrog.com/xxxxx)
-      </div>
+      Enter the URL of image page.<br />
+      (For example: http://yfrog.com/xxxxx)
 
       <div style="margin: 20px 0">
-        URL: <input name="url" style="width: 400px; font-size: 26px; border: 1px solid #006; background: #ffc;" placeholder="http://example.com" value="http://yfrog.com/gyviz6j" />
+        URL: <input name="url" id="url" type="text" style="width: 400px; font-size: 26px;" placeholder="http://example.com" value="http://yfrog.com/gyviz6j" />
       </div>
 
       <div>
-        <input type="submit" value="Get image information as JSON" style="font-size: 20px" />
+        <div style="margin: 10px 0">
+          <input type="button" id="showinfo" value="Get image information" style="font-size: 20px" />
+        </div>
+
+        <div id="showinfo_result">
+          <table><tbody>
+            <tr>
+              <th>ImageURLs:</th>
+              <td id="showinfo_result_imageurls"></td>
+            </tr>
+            <tr>
+              <th>Title:</th>
+              <td id="showinfo_result_title"></td>
+            </tr>
+            <tr>
+              <th>Referrer:</th>
+              <td id="showinfo_result_referer"></td>
+            </tr>
+            <tr>
+              <th>PageURL:</th>
+              <td id="showinfo_result_pageurl"></td>
+            </tr>
+          </tbody></table>
+        </div>
       </div>
     </form>
 
-    <div style="width: 100%; border-top: 1px solid gray; margin-top: 80px;">
+    <div style="width: 100%; border-top: 1px solid gray; margin-top: 40px;">
       Sites
 
       <div style="width: 50%; height: 200px; overflow: auto; border: 1px solid gray; margin: 10px auto; font-size: 20px" id="sites">
@@ -43,6 +65,6 @@
     </div>
 
     <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-    <script type="text/javascript" src="js/sites.js"></script>
+    <script type="text/javascript" src="js/imagelnk.js"></script>
   </body>
 </html>
