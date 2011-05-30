@@ -20,10 +20,42 @@ body {
     font-size: 16px;
 }
 
+.pre {
+    white-space: pre;
+    font-family: monospace;
+}
+
 h1 {
-    font-size: 52px;
     margin: 20px 0 10px 0;
     padding: 0;
+    font-size: 52px;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 20px 0 10px 0;
+    padding: 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 20px 0 0px 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#footer {
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid gray;
+    text-align: right;
+    font-size: 16px;
+}
+
+#footer div {
+    padding: 3px;
 }
 
 #showinfo_form {
@@ -63,6 +95,34 @@ input[type=text] {
 }
 
 #showinfo_result table td {
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.api_description {
+    margin-left: 20px;
+}
+
+.api_description table {
+    margin-top: 10px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+.api_description table th {
+    padding: 5px;
+    text-align: right;
+    vertical-align: top;
+    font-weight: bold;
+    background-color: #ffc;
+}
+
+.api_description table td {
     padding: 5px;
     text-align: left;
     vertical-align: top;

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/common.css" type="text/css" media="all" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>ImageLnk API</title>
+  </head>
+  <body>
+    <h1>ImageLnk API</h1>
+
+    <div style="text-align: left; width: 750px; margin: 40px auto;">
+      You can call ImageLnk functions via HTTP.
+
+      <h2>api/get</h2>
+      <div style="margin-left: 20px">
+      </div>
+
+      <h2>api/sites</h2>
+      <div class="api_description">
+        Getting web site URLs which are supported by ImageLnk.
+
+        <h3>URL</h3>
+        <a href="http://imagelnk.pqrs.org/api/sites">http://imagelnk.pqrs.org/api/sites</a>
+
+        <h3>Parameters</h3>
+        Nothing.
+
+        <h3>Result</h3>
+        <table><tbody>
+          <tr>
+            <th>sites:</th>
+            <td>An array of web site URLs</td>
+          </tr>
+        </tbody></table>
+
+        <h3>Example</h3>
+        Request URL: <a href="http://imagelnk.pqrs.org/api/sites">http://imagelnk.pqrs.org/api/sites</a><br />
+        Result:
+        <div class="pre">{                                       </div>
+        <div class="pre">  "sites":["http://instagr.am/",        </div>
+        <div class="pre">           "http://lockerz.com/",       </div>
+        <div class="pre">           "http://ow.ly/",             </div>
+        <div class="pre">           "http://picasa.google.com/"] </div>
+        <div class="pre">}                                       </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div>
+        Takayama Fumihiko &lt;tekezo@pqrs.org&gt;
+      </div>
+    </div>
+  </body>
+</html>
