@@ -26,6 +26,10 @@ jQuery(function() {
                                                            url: jQuery('#url').val()
                                                        },
                                                        function(data) {
+                                                           if (data.title     == undefined) { data.title     = 'N/A'; }
+                                                           if (data.referer   == undefined) { data.referer   = 'N/A'; }
+                                                           if (data.imageurls == undefined) { data.imageurls = ['N/A']; }
+
                                                            jQuery('#showinfo_result_pageurl').text(data.pageurl);
                                                            jQuery('#showinfo_result_title').text(data.title);
                                                            jQuery('#showinfo_result_referer').text(data.referer);
