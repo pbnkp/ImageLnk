@@ -418,7 +418,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://www.engadget.com/photos/ubeam-wireless-power-demonstration-hands-on-at-d9/#4179665';
     $title = 'uBeam wireless power demonstration hands-on at D9 - Engadget Galleries';
     $imageurls = array(
-      'http://www.blogcdn.com/www.engadget.com/media/2011/06/ubeam-demo-hands-on-d92877_103x88.jpg',
+      'http://www.blogcdn.com/www.engadget.com/media/2011/06/ubeam-demo-hands-on-d92877.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -427,7 +427,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://www.engadget.com/photos/intels-computex-2011-keynote/#4176987';
     $title = "Intel's Computex 2011 keynote - Engadget Galleries";
     $imageurls = array(
-      'http://www.blogcdn.com/www.engadget.com/media/2011/05/11a531416e6_103x88.jpg',
+      'http://www.blogcdn.com/www.engadget.com/media/2011/05/11a531416e6.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }

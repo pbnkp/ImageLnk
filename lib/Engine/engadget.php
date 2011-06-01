@@ -22,8 +22,8 @@ class ImageLnkEngine_engadget {
 
     if (preg_match(sprintf('/<div.*? id="thumb-%d">(.*?)<\/div>/s', $id), $html, $matches)) {
       foreach (ImageLnkHelper::scanSingleTag('img', $matches[1]) as $img) {
-        if (preg_match('/ src="(.+?)"/', $img, $m)) {
-          $response->addImageURL($m[1]);
+        if (preg_match('/ src="(.+?)_\d+x\d+(\.[^\.]+?)"/', $img, $m)) {
+          $response->addImageURL($m[1] . $m[2]);
           break;
         }
       }
