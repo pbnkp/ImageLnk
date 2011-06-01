@@ -393,4 +393,23 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_engadget_jp1() {
+    $url = 'http://japanese.engadget.com/photos/asus-eee-pad-memo-3d-memic-hands-on/4173481/';
+    $title = 'Engadget Japanese: Asus Eee Pad MeMO 3D / MeMIC hands on';
+    $imageurls = array(
+      'http://www.blogcdn.com/japanese.engadget.com/media/2011/05/asuseeepadmemohandsoncomputex1103-1306749954.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_engadget_jp2() {
+    $url = 'http://japanese.engadget.com/photos/memorex-gaming-peripherals-e3-2011/4179706/';
+    $title = 'Engadget Japanese: Memorex gaming Peripherals (E3 2011)';
+    $imageurls = array(
+      'http://www.blogcdn.com/japanese.engadget.com/media/2011/06/3dsgameselector.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
