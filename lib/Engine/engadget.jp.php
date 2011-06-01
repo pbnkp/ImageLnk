@@ -2,7 +2,7 @@
 
 class ImageLnkEngine_engadget_jp {
   const language = 'Japanese';
-  const sitename = 'http://japanese.engadget.com/';
+  const sitename = 'http://japanese.engadget.com/gallery';
 
   public static function handle($url) {
     if (! preg_match('/^http:\/\/japanese.engadget\.com\/photos\//', $url)) {
