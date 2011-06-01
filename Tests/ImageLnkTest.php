@@ -374,4 +374,23 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $referer = 'http://ow.ly/i/bG2H/original';
     $this->check_response($url, $title, $imageurls, $referer);
   }
+
+  // ======================================================================
+  function test_natalie1() {
+    $url = 'http://natalie.mu/comic/gallery/show/news_id/50403/image_id/77977';
+    $title = 'コミックナタリー - 全高75cmでゲソ！「イカ娘」超BIGぬいぐるみが登場';
+    $imageurls = array(
+      'http://natalie.mu/media/comic/1105/extra/news_large_ika_roke1.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_natalie2() {
+    $url = 'http://natalie.mu/music/gallery/show/news_id/50476/image_id/78087';
+    $title = 'ナタリー - 怒髪天、5都市を回る自身初のホールツアー決定';
+    $imageurls = array(
+      'http://natalie.mu/media/1106/0601/extra/news_large_dohatsuten_topB.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
