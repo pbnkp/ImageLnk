@@ -5,7 +5,7 @@ class ImageLnkEngine_engadget_jp {
   const sitename = 'http://japanese.engadget.com/gallery';
 
   public static function handle($url) {
-    if (! preg_match('/^http:\/\/japanese.engadget\.com\/photos\//', $url)) {
+    if (! preg_match('/^http:\/\/japanese\.engadget\.com\/photos\//', $url)) {
       return FALSE;
     }
 
@@ -16,16 +16,12 @@ class ImageLnkEngine_engadget_jp {
     $response = new ImageLnkResponse();
     $response->setReferer($url);
 
-    $title = ImageLnkHelper::getTitle($html);
-    if ($title !== FALSE) {
-      $response->setTitle($title);
-    }
-
-    if (preg_match('/<p class="breadcrumb">.*?<em><a .*?>(.*?)<\/a>/', $html, $matches)) {
+    $response->setTitle(ImageLnkHelper::getTitle($html));
+    if (preg_match('/<p class="breadcrumb">.*?<em><a .*?>(.*?)<\/a>/s', $html, $matches)) {
       $response->setTitle($response->getTitle() . ': ' . $matches[1]);
     }
 
-    if (preg_match('/<div class="photo-body">(.*?)<\/div>/', $html, $matches)) {
+    if (preg_match('/<div class="photo-body">(.*?)<\/div>/s', $html, $matches)) {
       foreach (ImageLnkHelper::scanSingleTag('img', $matches[1]) as $img) {
         if (preg_match('/ src="(.+?)"/', $img, $m)) {
           $response->addImageURL($m[1]);
