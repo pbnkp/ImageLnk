@@ -5,9 +5,11 @@ class ImageLnkEngine_itmedia {
   const sitename = 'http://www.itmedia.co.jp/';
 
   public static function handle($url) {
-    if (! preg_match('/^http:\/\/image\.itmedia\.co\.jp\/l\//', $url)) {
+    if (! preg_match('/^http:\/\/image\.itmedia\.co\.jp\/l\/im\/(.+)$/', $url, $matches)) {
       return FALSE;
     }
+
+    $filename = preg_quote($matches[1], '/');
 
     // ----------------------------------------
     $data = ImageLnkCache::get($url);
@@ -18,10 +20,12 @@ class ImageLnkEngine_itmedia {
     $response->setReferer($url);
 
     if (preg_match('/<h1>(.+?)<\/h1>/', $html, $matches)) {
-      $response->setTitle($matches[1]);
+      $response->setTitle(strip_tags($matches[1]));
     }
-    if (preg_match('/designCnt\(\'largeImgMain\'\).*<img src="(.+?)"/', $html, $matches)) {
-      $response->addImageURL($matches[1]);
+    foreach (ImageLnkHelper::scanSingleTag('img', $html) as $img) {
+      if (preg_match(sprintf('/ src="([^"]+?\/%s)"/s', $filename), $img, $matches)) {
+        $response->addImageURL($matches[1]);
+      }
     }
 
     return $response;

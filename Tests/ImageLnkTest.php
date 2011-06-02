@@ -167,6 +167,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->check_response($url, $title, $imageurls);
   }
 
+  function test_itmedia2() {
+    $url = 'http://image.itmedia.co.jp/l/im/nl/articles/1106/02/l_ky_robo_0602_5.jpg';
+    $title = 'セグウェイが歩道を走る　つくばでロボットの公道走行実験スタート';
+    $imageurls = array(
+      'http://image.itmedia.co.jp/nl/articles/1106/02/l_ky_robo_0602_5.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
   // ======================================================================
   function test_nicovideo1() {
     $url = 'http://www.nicovideo.jp/watch/sm12589060';
