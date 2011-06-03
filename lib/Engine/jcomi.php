@@ -2,7 +2,7 @@
 
 class ImageLnkEngine_jcomi {
   const language = 'Japanese';
-  const sitename = 'http://www.j-comi.net/';
+  const sitename = 'http://www.j-comi.jp/';
 
   public static function handle($url) {
     if (! preg_match('/^http:\/\/www\.j-comi\.jp\/viewer\/arnoul\//', $url)) {
