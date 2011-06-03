@@ -346,9 +346,9 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_wikipedia1() {
     $url = 'http://en.wikipedia.org/wiki/File:PANSDeinonychus.JPG';
-    $title = 'English:  Deinonychus antirrhopus skeleton, Philadelphia Academy of Natural Sciences';
+    $title = 'PANSDeinonychus.JPG English: Deinonychus antirrhopus skeleton, Philadelphia Academy of Natural Sciences';
     $imageurls = array(
-      'http://upload.wikimedia.org/wikipedia/en/e/e6/PANSDeinonychus.JPG',
+      'http://upload.wikimedia.org/wikipedia/commons/e/e6/PANSDeinonychus.JPG',
       );
     $this->check_response($url, $title, $imageurls);
   }
