@@ -446,8 +446,8 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://www.j-comi.jp/viewer/arnoul/3722/5/ja';
     $title = 'Jコミ | いただきます！ 2';
     $imageurls = array(
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/lite/Itadakimasu02_002.jpg',
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/lite/Itadakimasu02_003.jpg',
+      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_002.jpg',
+      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_003.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -456,8 +456,8 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://www.j-comi.jp/viewer/arnoul/3722/6/ja';
     $title = 'Jコミ | いただきます！ 2';
     $imageurls = array(
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/lite/Itadakimasu02_002.jpg',
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/lite/Itadakimasu02_003.jpg',
+      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_002.jpg',
+      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_003.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -466,8 +466,8 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://www.j-comi.jp/viewer/arnoul/3748/5/ja';
     $title = 'Jコミ | 猫でごめん！ 8';
     $imageurls = array(
-      'http://cf.j-comi.jp/SXA/vol001/3/3748/lite/NekoGome8_002.jpg',
-      'http://cf.j-comi.jp/SXA/vol001/3/3748/lite/NekoGome8_003.jpg',
+      'http://cf.j-comi.jp/SXA/vol001/3/3748/st/NekoGome8_002.jpg',
+      'http://cf.j-comi.jp/SXA/vol001/3/3748/st/NekoGome8_003.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }

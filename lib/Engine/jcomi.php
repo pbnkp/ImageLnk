@@ -23,6 +23,7 @@ class ImageLnkEngine_jcomi {
       if (preg_match("/ id='(cr|cl)'/", $input)) {
         if (preg_match("/value='(.+?)'/", $input, $m)) {
           $imageurl = base64_decode($m[1]);
+          $imageurl = str_replace('/lite/', '/st/', $imageurl);
           if (! isset($hash[$imageurl])) {
             $hash[$imageurl] = true;
             $response->addImageURL($imageurl);
