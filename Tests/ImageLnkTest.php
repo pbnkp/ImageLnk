@@ -189,11 +189,12 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
-    $title = '凛として鼻血';
+    $title = '「凛として鼻血」/「柴系」のイラスト [pixiv]';
     $imageurls = array(
-      'http://img11.pixiv.net/img/taishi22/10461576_m.png',
+      'http://img11.pixiv.net/img/taishi22/10461576.png',
       );
-    $this->check_response($url, $title, $imageurls);
+    $referer = 'http://www.pixiv.net/member_illust.php?mode=big&illust_id=10461576';
+    $this->check_response($url, $title, $imageurls, $referer);
   }
 
   function test_pixiv2() {
@@ -222,6 +223,16 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       'http://img11.pixiv.net/img/taishi22/18741440_big_p1.png',
       );
     $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_pixiv5() {
+    $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=18741440';
+    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $imageurls = array(
+      'http://img11.pixiv.net/img/taishi22/18741440_big_p0.png',
+      );
+    $referer = 'http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=18741440&page=0';
+    $this->check_response($url, $title, $imageurls, $referer);
   }
 
   // ======================================================================

@@ -13,6 +13,23 @@ class ImageLnkEngine_pixiv {
     $data = ImageLnkCache::get($url);
     $html = $data['data'];
 
+    // --------------------
+    // If mode=medium, fetch large image page
+    if (preg_match('/\?mode=medium&/', $url)) {
+      if (preg_match('/<div class="works_display">(.*?)<\/div>/s', $html, $matches)) {
+        if (preg_match('/ href="(member_illust.php\?mode=big&.*?)"/', $matches[1], $m)) {
+          $newurl = 'http://www.pixiv.net/' . html_entity_decode($m[1], ENT_QUOTES, 'UTF-8');
+          return self::handle($newurl);
+        }
+        if (preg_match('/ href="(member_illust.php\?mode=manga&.*?)"/', $matches[1], $m)) {
+          $newurl = preg_replace('/mode=manga&/', 'mode=manga_big&', $m[1]);
+          $newurl = 'http://www.pixiv.net/' . html_entity_decode($newurl, ENT_QUOTES, 'UTF-8') . '&page=0';
+          return self::handle($newurl);
+        }
+      }
+    }
+
+    // --------------------
     $response = new ImageLnkResponse();
     $response->setReferer($url);
 
