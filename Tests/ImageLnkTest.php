@@ -260,7 +260,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://yfrog.com/1xj3nvj';
     $title = 'yfrog Photo : http://yfrog.com/1xj3nvj Shared by atty303';
     $imageurls = array(
-      'http://img69.yfrog.com/img69/7185/j3nv.jpg',
+      'http://a.yfrog.com/img69/7185/j3nv.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -369,7 +369,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://instagr.am/p/E6VjC/';
     $title = 'yfryer\'s photo: “おはよう”';
     $imageurls = array(
-      'http://images.instagram.com/media/2011/05/29/9c4d66f169a24764961977326e2fc1cf_7.jpg',
+      'http://distillery.s3.amazonaws.com/media/2011/05/29/9c4d66f169a24764961977326e2fc1cf_7.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -479,6 +479,25 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $imageurls = array(
       'http://cf.j-comi.jp/SXA/vol001/3/3748/st/NekoGome8_002.jpg',
       'http://cf.j-comi.jp/SXA/vol001/3/3748/st/NekoGome8_003.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_4gamer1() {
+    $url = 'http://www.4gamer.net/games/044/G004471/20110616072/screenshot.html?num=003';
+    $title = '4Gamer.net ― スクリーンショット（「Wizardry Online」のCBT「機能テスト」先行体験プレイレポートを掲載。実態はやはり高難度……しかし序盤は「ロスト」の心配無用？）';
+    $imageurls = array(
+      'http://www.4gamer.net/games/044/G004471/20110616072/SS/003.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_4gamer2() {
+    $url = 'http://www.4gamer.net/games/044/G004471/20110616072/screenshot.html';
+    $title = '4Gamer.net ― スクリーンショット（「Wizardry Online」のCBT「機能テスト」先行体験プレイレポートを掲載。実態はやはり高難度……しかし序盤は「ロスト」の心配無用？）';
+    $imageurls = array(
+      'http://www.4gamer.net/games/044/G004471/20110616072/SS/001.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
