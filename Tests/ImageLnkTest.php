@@ -501,4 +501,14 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_gamespot_jp() {
+    $url = 'http://japan.gamespot.com/image/l/storage/35004222/storage/2011/06/17/77bbc7f0675cc5bac8edf6b5e30567c6/jjapp03.jpg';
+    $title = 'iPhone/iPod touchアプリ「ジョジョの奇妙な花闘」本日6月17日より無料配信！関連画像';
+    $imageurls = array(
+      'http://japan.gamespot.com/storage/2011/06/17/93e0731c4580bb9a012cf2c9e3b818c1/watermark_jjapp03.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
