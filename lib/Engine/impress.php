@@ -22,8 +22,10 @@ class ImageLnkEngine_impress {
 
     $response->setTitle(ImageLnkHelper::getTitle($html));
 
-    if (preg_match("/<img src=\"({$id})\"/", $html, $matches)) {
-      $response->addImageURL($baseurl . $matches[1]);
+    foreach (ImageLnkHelper::scanSingleTag('img', $html) as $imgtag) {
+      if (preg_match("/ src=\"({$id})\"/", $imgtag, $matches)) {
+        $response->addImageURL($baseurl . $matches[1]);
+      }
     }
 
     return $response;

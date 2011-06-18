@@ -324,6 +324,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->check_response($url, $title, $imageurls);
   }
 
+  function test_impress2() {
+    $url = 'http://dc.watch.impress.co.jp/img/dcw/docs/422/882/html/009.jpg.html';
+    $title = '写真で見るカシオ「TRYX」（β機） - デジカメWatch';
+    $imageurls = array(
+      'http://dc.watch.impress.co.jp/img/dcw/docs/422/882/009.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
   // ======================================================================
   function test_tumblr1() {
     $url = 'http://titlebot.tumblr.com/post/5544499061';
