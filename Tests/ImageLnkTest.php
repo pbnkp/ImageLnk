@@ -512,11 +512,30 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  function test_gamespot_jp() {
+  function test_gamespot_jp1() {
     $url = 'http://japan.gamespot.com/image/l/storage/35004222/storage/2011/06/17/77bbc7f0675cc5bac8edf6b5e30567c6/jjapp03.jpg';
     $title = 'iPhone/iPod touchアプリ「ジョジョの奇妙な花闘」本日6月17日より無料配信！関連画像';
     $imageurls = array(
       'http://japan.gamespot.com/storage/2011/06/17/93e0731c4580bb9a012cf2c9e3b818c1/watermark_jjapp03.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_famitsu1() {
+    $url = 'http://www.famitsu.com/news/201106/images/00045516/qSmn53J8Boevo2zZqF3IYq6hCI37GJ7w.html';
+    $title = '『侵略！イカ娘』が釣りゲームになって登場！　エビでイカを釣らなイカ？関連スクリーンショット・写真画像';
+    $imageurls = array(
+      'http://www.famitsu.com/news/201106/images/00045516/qSmn53J8Boevo2zZqF3IYq6hCI37GJ7w.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_famitsu2() {
+    $url = 'http://www.famitsu.com/news/201106/images/00045487/AGE4AGCB21y4EX6lmIuMOTSYW3Bs4o9Q.html';
+    $title = '『ギアーズ オブ ウォー 3』の真髄に迫る、“Horde”いよいよ解禁！【スタジオツアー1】関連スクリーンショット・写真画像';
+    $imageurls = array(
+      'http://www.famitsu.com/news/201106/images/00045487/AGE4AGCB21y4EX6lmIuMOTSYW3Bs4o9Q.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
