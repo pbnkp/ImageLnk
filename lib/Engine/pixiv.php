@@ -5,9 +5,11 @@ class ImageLnkEngine_pixiv {
   const sitename = 'http://www.pixiv.net/';
 
   public static function handle($url) {
-    if (! preg_match('/^http:\/\/www\.pixiv\.net\/member_illust\.php/', $url)) {
+    if (! preg_match('/^http:\/\/(www|touch)\.pixiv\.net\/member_illust\.php/', $url)) {
       return FALSE;
     }
+
+    $url = preg_replace('/^http:\/\/touch\.pixiv\.net/', 'http://www.pixiv.net', $url);
 
     // ----------------------------------------
     $data = ImageLnkCache::get($url);
