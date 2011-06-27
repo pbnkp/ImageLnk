@@ -189,7 +189,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
-    $title = '「凛として鼻血」/「柴系」のイラスト [pixiv]';
+    $title = '「凛として鼻血」/「柴系＠もう恐２【Ｉ０８】」のイラスト [pixiv]';
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/10461576.png',
       );
@@ -199,7 +199,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv2() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=big&illust_id=10461576';
-    $title = '「凛として鼻血」/「柴系」のイラスト [pixiv]';
+    $title = '「凛として鼻血」/「柴系＠もう恐２【Ｉ０８】」のイラスト [pixiv]';
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/10461576.png',
       );
@@ -218,7 +218,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv4() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=18741440&page=1';
-    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系＠もう恐２【Ｉ０８】」の漫画 [pixiv]';
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/18741440_big_p1.png',
       );
@@ -227,7 +227,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv5() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=18741440';
-    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系＠もう恐２【Ｉ０８】」の漫画 [pixiv]';
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/18741440_big_p0.png',
       );
@@ -237,7 +237,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv6() {
     $url = 'http://touch.pixiv.net/member_illust.php?mode=medium&illust_id=18741440';
-    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系＠もう恐２【Ｉ０８】」の漫画 [pixiv]';
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/18741440_big_p0.png',
       );
@@ -546,6 +546,43 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $title = '『ギアーズ オブ ウォー 3』の真髄に迫る、“Horde”いよいよ解禁！【スタジオツアー1】関連スクリーンショット・写真画像';
     $imageurls = array(
       'http://www.famitsu.com/news/201106/images/00045487/AGE4AGCB21y4EX6lmIuMOTSYW3Bs4o9Q.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_zakzak1() {
+    $url = 'http://www.zakzak.co.jp/zakspa/photos/20110624/zsp1106241001002-p1.htm';
+    $title = '元ＡＶ女優「ミニスカ信仰」に異を唱えるショーパンのエロス  - ZAK×SPA！ - ZAKZAK';
+    $imageurls = array(
+      'http://www.zakzak.co.jp/zakspa/images/20110624/zsp1106241001002-p1.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_zakzak2() {
+    $url = 'http://www.zakzak.co.jp/gravure/idol/photos/20110627/idl1106271244001-p1.htm';
+    $title = '１６歳の森野朝美、スレンダーボディー炸裂にドキッ  - グラビアアイドル - ZAKZAK';
+    $imageurls = array(
+      'http://www.zakzak.co.jp/gravure/idol/images/20110627/idl1106271244001-p1.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_zakzak3() {
+    $url = 'http://www.zakzak.co.jp/zakspa/photos/20110627/zsp1106271227001-p1.htm';
+    $title = '【物欲刺激度】これなら３Ｄを楽しむ気になる！？  - ZAK×SPA！ - ZAKZAK';
+    $imageurls = array(
+      'http://www.zakzak.co.jp/zakspa/images/20110627/zsp1106271227001-p1.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_zakzak4() {
+    $url = 'http://www.zakzak.co.jp/campaigngirl/j-beauty/photos/20110518/jbt1105181611000-p1.htm';
+    $title = '株主様になってください！「オトメ☆コーポレーション」ゆうこ  - キャンギャル・イベント - ZAKZAK';
+    $imageurls = array(
+      'http://www.zakzak.co.jp/campaigngirl/j-beauty/images/20110518/jbt1105181611000-p1.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
