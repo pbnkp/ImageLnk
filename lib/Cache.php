@@ -49,7 +49,7 @@ class ImageLnkCache {
     return file_get_contents($path);
   }
 
-  public static function get($url) {
+  public static function get($url, $referer = NULL) {
     $path = self::getCacheFilePathFromURL($url);
 
     $data = array(
@@ -59,7 +59,7 @@ class ImageLnkCache {
 
     if ($data['data'] === FALSE) {
       $data['from_cache'] = false;
-      $data['data'] = ImageLnkFetcher::fetch($url);
+      $data['data'] = ImageLnkFetcher::fetch($url, $referer);
 
       self::writeToCacheFile($path, $data['data']);
     }

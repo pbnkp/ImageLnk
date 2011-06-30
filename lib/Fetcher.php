@@ -49,7 +49,7 @@ class ImageLnkFetcher {
     }
   }
 
-  private static function fetch_pixiv_page($url) {
+  private static function fetch_pixiv_page($url, $referer) {
     $cookies = ImageLnkCache::readFromCacheFile(self::getCookieCacheFilePath("pixiv"));
     if ($cookies === FALSE) {
       $cookies = array();
@@ -68,9 +68,13 @@ class ImageLnkFetcher {
       $request->setHeader('Referer', preg_replace('/mode=big/', 'mode=medium', $url));
     }
     if (preg_match('/member_illust\.php\?mode=manga_big/', $url)) {
-      $referer = preg_replace('/mode=manga_big/', 'mode=manga', $url);
-      $referer = preg_replace('/&page=\d+/', '', $referer);
-      $request->setHeader('Referer', $referer);
+      $newreferer = preg_replace('/mode=manga_big/', 'mode=manga', $url);
+      $newreferer = preg_replace('/&page=\d+/', '', $newreferer);
+      $request->setHeader('Referer', $newreferer);
+    } else {
+      if ($referer !== NULL) {
+        $request->setHeader('Referer', $referer);
+      }
     }
 
     foreach ($cookies as $c) {
@@ -84,14 +88,14 @@ class ImageLnkFetcher {
     return $response->getBody();
   }
 
-  private static function fetch_pixiv($url) {
-    $html = self::fetch_pixiv_page($url);
+  private static function fetch_pixiv($url, $referer) {
+    $html = self::fetch_pixiv_page($url, $referer);
 
     // Try login if needed.
     if (preg_match("/pixiv\.user\.id = '';/", $html) ||
         preg_match('/name="loginForm"/', $html)) {
       if (self::fetch_pixiv_login()) {
-        $html = self::fetch_pixiv_page($url);
+        $html = self::fetch_pixiv_page($url, $referer);
       } else {
         $html = '';
       }
@@ -101,9 +105,9 @@ class ImageLnkFetcher {
   }
 
   // ======================================================================
-  public static function fetch($url) {
+  public static function fetch($url, $referer = NULL) {
     if (preg_match('/^http:\/\/[^\/]*pixiv\.net\//', $url)) {
-      return self::fetch_pixiv($url);
+      return self::fetch_pixiv($url, $referer);
     }
 
     // --------------------------------------------------
@@ -111,8 +115,12 @@ class ImageLnkFetcher {
     $config['follow_redirects'] = true;
     $request = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $config);
     $request->setHeader('User-Agent', self::USER_AGENT);
+
     // For some sites (itmedia, ...), we need to set referer.
-    $request->setHeader('Referer', $url);
+    if ($referer === NULL) {
+      $referer = $url;
+    }
+    $request->setHeader('Referer', $referer);
 
     $response = $request->send();
     return $response->getBody();
