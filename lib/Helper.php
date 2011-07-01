@@ -1,8 +1,8 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkHelper {
-  public static function scanSingleTag($name, $html) {
-    if (preg_match_all("/<{$name} .+?>/s", $html, $matches) === FALSE) return array();
+  public static function scanSingleTag($name, $html, $regexpoption = 's') {
+    if (preg_match_all("/<{$name} .+?>/{$regexpoption}", $html, $matches) === FALSE) return array();
     return $matches[0];
   }
 
