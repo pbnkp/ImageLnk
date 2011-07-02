@@ -10,6 +10,7 @@ class ImageLnkFetcher {
   private static function getConfig() {
     return array(
       'timeout' => 60,
+      'ssl_verify_peer' => false,
       );
   }
 
