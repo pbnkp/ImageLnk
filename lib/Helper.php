@@ -7,8 +7,8 @@ class ImageLnkHelper {
   }
 
   public static function getTitle($html) {
-    if (preg_match('/<title>(.*?)<\/title>/is', $html, $matches)) {
-      return $matches[1];
+    if (preg_match('/<title( .*?)?>(.*?)<\/title>/is', $html, $matches)) {
+      return $matches[2];
     } else {
       return FALSE;
     }
