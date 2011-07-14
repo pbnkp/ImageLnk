@@ -5,7 +5,7 @@ class ImageLnkEngine_impress {
   const sitename = 'http://watch.impress.co.jp/';
 
   public static function handle($url) {
-    if (! preg_match('/^(http:\/\/([^\/]+\.)?watch\.impress\.co\.jp)(\/img\/.+).html/', $url, $matches)) {
+    if (! preg_match('/^(http:\/\/([^\/]+\.)?impress\.co\.jp)(\/img\/.+).html/', $url, $matches)) {
       return FALSE;
     }
 
