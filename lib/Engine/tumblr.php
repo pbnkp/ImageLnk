@@ -21,8 +21,11 @@ class ImageLnkEngine_tumblr {
     $response = new ImageLnkResponse();
     $response->setReferer($url);
 
-    if (preg_match('/<photo-caption>(.+?)<\/photo-caption>/', $html, $matches)) {
+    if (preg_match('/<tumblelog .*? title="(.+?)"/', $html, $matches)) {
       $response->setTitle($matches[1]);
+    }
+    if (preg_match('/<photo-caption>(.+?)<\/photo-caption>/', $html, $matches)) {
+      $response->setTitle($response->getTitle() . ': ' . strip_tags(html_entity_decode($matches[1])));
     }
 
     if (preg_match('/<photo-url .*?>(.+?)<\/photo-url>/', $html, $matches)) {
