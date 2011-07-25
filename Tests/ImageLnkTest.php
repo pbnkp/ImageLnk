@@ -77,6 +77,25 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     }
   }
 
+  function test_ameblo3() {
+    $url = 'http://ameblo.jp/strawberry-ayana/image-10963873926-11370958832.html';
+    $response = ImageLnk::getImageInfo($url);
+
+    $title = 'わんふぇす2の画像 | 竹達彩奈オフィシャルブログ「Strawberry Candy」Powe…';
+    $actual = $response->getTitle();
+    $this->assertSame($title, $actual);
+
+    $referer = $url;
+    $actual = $response->getReferer();
+    $this->assertSame($referer, $actual);
+
+    foreach ($response->getImageURLs() as $imageurl) {
+      $expect = 1;
+      $actual = preg_match('/http:\/\/stat.*\.ameba\.jp\/user_images\/20110724\/19\/strawberry-ayana\/ac\/1e\/j\/o0480064011370958832\.jpg/', $imageurl);
+      $this->assertSame($expect, $actual);
+    }
+  }
+
   // ======================================================================
   function test_ascii1() {
     $url = 'http://ascii.jp/elem/000/000/581/581329/img.html';

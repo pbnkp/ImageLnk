@@ -19,8 +19,15 @@ class ImageLnkEngine_ameblo {
     $response->setTitle(ImageLnkHelper::getTitle($html));
     if (preg_match('/<div id="imageMain">.*?<img .*?src="(.+?)"/s', $html, $matches)) {
       $response->addImageURL($matches[1]);
-    } elseif (preg_match('/<img id="imageMain".*?src="(.+?)"/s', $html, $matches)) {
-      $response->addImageURL($matches[1]);
+    } else {
+      foreach (ImageLnkHelper::scanSingleTag('img', $html) as $imgtag) {
+        if (preg_match('/ id="imageMain"/', $imgtag) ||
+            preg_match('/ id="centerImg"/', $imgtag)) {
+          if (preg_match('/ src="(.+?)"/', $imgtag, $matches)) {
+            $response->addImageURL($matches[1]);
+          }
+        }
+      }
     }
 
     return $response;
