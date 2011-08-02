@@ -509,37 +509,6 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  function test_jcomi1() {
-    $url = 'http://www.j-comi.jp/viewer/arnoul/3722/5/ja';
-    $title = 'Jコミ | いただきます！ 2';
-    $imageurls = array(
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_002.jpg',
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_003.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  function test_jcomi2() {
-    $url = 'http://www.j-comi.jp/viewer/arnoul/3722/6/ja';
-    $title = 'Jコミ | いただきます！ 2';
-    $imageurls = array(
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_002.jpg',
-      'http://cf.j-comi.jp/SXA/vol001/3/3722/st/Itadakimasu02_003.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  function test_jcomi3() {
-    $url = 'http://www.j-comi.jp/viewer/arnoul/3748/5/ja';
-    $title = 'Jコミ | 猫でごめん！ 8';
-    $imageurls = array(
-      'http://cf.j-comi.jp/SXA/vol001/3/3748/st/NekoGome8_002.jpg',
-      'http://cf.j-comi.jp/SXA/vol001/3/3748/st/NekoGome8_003.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  // ======================================================================
   function test_4gamer1() {
     $url = 'http://www.4gamer.net/games/044/G004471/20110616072/screenshot.html?num=003';
     $title = '4Gamer.net ― スクリーンショット（「Wizardry Online」のCBT「機能テスト」先行体験プレイレポートを掲載。実態はやはり高難度……しかし序盤は「ロスト」の心配無用？）';
