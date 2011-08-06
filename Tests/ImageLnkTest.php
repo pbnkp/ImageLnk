@@ -371,6 +371,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->check_response($url, $title, $imageurls);
   }
 
+  function test_impress4() {
+    $url = 'http://akiba-pc.watch.impress.co.jp/hotline/20110806/image/kfrety4.html';
+    $title = '[拡大画像]お買い得価格情報 - AKIBA PC Hotline!';
+    $imageurls = array(
+      'http://akiba-pc.watch.impress.co.jp/hotline/20110806/image/kfrety4.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
   // ======================================================================
   function test_tumblr1() {
     $url = 'http://titlebot.tumblr.com/post/5544499061';
