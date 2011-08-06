@@ -139,7 +139,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_lockerz1() {
     $url = 'http://lockerz.com/s/71921454';
-    $title = "Lockerz.com .:. Butter_nekojump's Photos -";
+    $title = "Lockerz.com : Butter_nekojump's Photo";
     $imageurls = array(
       'http://c0013619.cdn1.cloudfiles.rackspacecloud.com/x2_4496f2e',
       );

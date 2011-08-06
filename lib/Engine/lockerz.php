@@ -16,7 +16,15 @@ class ImageLnkEngine_lockerz {
     $response = new ImageLnkResponse();
     $response->setReferer($url);
 
-    ImageLnkHelper::setResponseFromOpenGraph($response, $html);
+    $response->setTitle(ImageLnkHelper::getTitle($html));
+
+    foreach (ImageLnkHelper::scanSingleTag('img', $html) as $imgtag) {
+      if (preg_match('/ id="photo"/', $imgtag)) {
+        if (preg_match('/ src="(.+?)"/', $imgtag, $matches)) {
+          $response->addImageURL($matches[1]);
+        }
+      }
+    }
 
     return $response;
   }
