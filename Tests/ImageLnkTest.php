@@ -601,4 +601,13 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  function test_zakzak5() {
+    $url = 'http://www.zakzak.co.jp/gravure/idol/photos/20110806/idl1108061505000-p12.htm';
+    $title = '巨乳れい、運動会でおっぱいモミモミ！  - グラビアアイドル - ZAKZAK';
+    $imageurls = array(
+      'http://www.zakzak.co.jp/gravure/idol/images/20110806/idl1108061505000-p12.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }

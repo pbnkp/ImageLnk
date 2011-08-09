@@ -20,7 +20,7 @@ class ImageLnkEngine_zakzak {
     $response->setTitle(ImageLnkHelper::getTitle($html));
     if (preg_match('/<table class="photo">(.+?)<\/table>/s', $html, $matches)) {
       foreach (ImageLnkHelper::scanSingleTag('img', $matches[1]) as $img) {
-        if (preg_match('/ src="[\.\/]+(.+?)"/s', $html, $m)) {
+        if (preg_match('/ src="[\.\/]+(.+?)"/s', $img, $m)) {
           $response->addImageURL('http://www.zakzak.co.jp/' . $m[1]);
         }
       }
