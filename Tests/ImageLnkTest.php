@@ -648,13 +648,4 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
-
-  function test_news_livedoor_com3() {
-    $url = 'http://news.livedoor.com/article/image_detail/5785699/?img_id=2117902';
-    $title = '【画像】レッドブル仕様の限定メタルウォッチ - 2枚目の写真 (レスポンス) - livedoor HOMME - livedoor ニュース';
-    $imageurls = array(
-      'http://image.news.livedoor.com/newsimage/4/b/4b584_9_6005e1902643db680af1bd7e7f81d9f1.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
 }
