@@ -648,4 +648,35 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_twitter1() {
+    $url = 'http://twitter.com/#!/miyabiarts/status/112889718550691840/photo/1';
+    $title = 'twitter: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $imageurls = array(
+      'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
+      );
+    $referer = "http://api.twitter.com/1/statuses/show.json?id=112889718550691840&include_entities=true&contributor_details=true";
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
+
+  function test_twitter2() {
+    $url = 'https://twitter.com/#!/miyabiarts/status/112889718550691840/photo/1';
+    $title = 'twitter: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $imageurls = array(
+      'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
+      );
+    $referer = "http://api.twitter.com/1/statuses/show.json?id=112889718550691840&include_entities=true&contributor_details=true";
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
+
+  function test_twitter3() {
+    $url = 'https://mobile.twitter.com/#!/miyabiarts/status/112889718550691840/photo/1';
+    $title = 'twitter: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $imageurls = array(
+      'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
+      );
+    $referer = "http://api.twitter.com/1/statuses/show.json?id=112889718550691840&include_entities=true&contributor_details=true";
+    $this->check_response($url, $title, $imageurls, $referer);
+  }
 }
