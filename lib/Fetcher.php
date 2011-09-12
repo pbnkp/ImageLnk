@@ -94,7 +94,8 @@ class ImageLnkFetcher {
 
     // Try login if needed.
     if (preg_match("/pixiv\.user\.id = '';/", $html) ||
-        preg_match('/name="loginForm"/', $html)) {
+        preg_match('/pixiv\.user\.loggedIn = false;/', $html) ||
+        preg_match('/class="login-form"/', $html)) {
       if (self::fetch_pixiv_login()) {
         $html = self::fetch_pixiv_page($url, $referer);
       } else {
