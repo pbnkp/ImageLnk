@@ -5,12 +5,11 @@ class ImageLnkEngine_twitter {
   const sitename = 'http://twitter.com/';
 
   public static function handle($url) {
-    if (! preg_match('|^https?://([^/]+)?twitter.com/.*/(\d+)/photo/(\d+)|', $url, $matches)) {
+    if (! preg_match('%^https?://([^/]+)?twitter.com/.*/(status|statuses)/(\d+)%', $url, $matches)) {
       return FALSE;
     }
 
-    $id   = $matches[2];
-    $page = $matches[3];
+    $id   = $matches[3];
 
     // ----------------------------------------
     $url = "http://api.twitter.com/1/statuses/show.json?id={$id}&include_entities=true&contributor_details=true";
@@ -23,7 +22,9 @@ class ImageLnkEngine_twitter {
     $response->setReferer($url);
 
     $response->setTitle('twitter: ' . $info->text);
-    $response->addImageURL($info->entities->media[$page - 1]->media_url);
+    foreach ($info->entities->media as $m) {
+      $response->addImageURL($m->media_url);
+    }
 
     return $response;
   }
