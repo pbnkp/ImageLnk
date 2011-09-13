@@ -652,7 +652,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_twitter1() {
     $url = 'http://twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = 'twitter: Masafumi[内閣総理大臣]: 定期的に貼っておこう。 http://t.co/rvCK9mr';
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -662,7 +662,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_twitter2() {
     $url = 'https://twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = 'twitter: Masafumi[内閣総理大臣]: 定期的に貼っておこう。 http://t.co/rvCK9mr';
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -672,7 +672,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_twitter3() {
     $url = 'https://mobile.twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = 'twitter: Masafumi[内閣総理大臣]: 定期的に貼っておこう。 http://t.co/rvCK9mr';
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
