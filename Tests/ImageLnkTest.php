@@ -679,4 +679,14 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $referer = "http://api.twitter.com/1/statuses/show.json?id=112889718550691840&include_entities=true&contributor_details=true";
     $this->check_response($url, $title, $imageurls, $referer);
   }
+
+  // ======================================================================
+  function test_itunes1() {
+    $url = 'http://itunes.apple.com/jp/album/muscle-march-original-soundtrack/id455935658?l=en';
+    $title = 'iTunes - Music - Muscle March Original Soundtrack by Namco Sounds';
+    $imageurls = array(
+      'http://a3.mzstatic.com/us/r1000/084/Music/87/7a/56/mzi.vzoqpscv.170x170-75.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
 }
