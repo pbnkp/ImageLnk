@@ -52,16 +52,20 @@ class ImageLnkCache {
   public static function get($url, $referer = NULL) {
     $path = self::getCacheFilePathFromURL($url);
 
-    $data = array(
-      'data' => self::readFromCacheFile($path),
-      'from_cache' => true,
-      );
+    $cache = self::readFromCacheFile($path);
 
-    if ($data['data'] === FALSE) {
+    if ($cache !== FALSE) {
+      $data = unserialize($cache);
+      $data['from_cache'] = true;
+
+    } else {
+      $response = ImageLnkFetcher::fetch($url, $referer);
+
       $data['from_cache'] = false;
-      $data['data'] = ImageLnkFetcher::fetch($url, $referer);
+      $data['data'] = $response->getBody();
+      $data['response'] = $response->getHeader();
 
-      self::writeToCacheFile($path, $data['data']);
+      self::writeToCacheFile($path, serialize($data));
     }
 
     return $data;
