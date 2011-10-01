@@ -699,4 +699,20 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  function test_cnet_jp2() {
+    $url = 'http://japan.cnet.com/image/l/storage/35004965/storage/2011/07/07/6158a520ae3ce67be4959c9b8cf62e72/20110707_casio_06.jpg';
+    $title = '関連画像 - CNET Japan: レンズ部を中心にフレームは360度回転し、モニタも270度回転する';
+    $imageurls = array(
+      'http://japan.cnet.com/storage/2011/07/07/6158a520ae3ce67be4959c9b8cf62e72/20110707_casio_06.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_cnet_jp3() {
+    $url = 'http://japan.cnet.com/digital/camera/35004965/';
+    $expect = NULL;
+    $actual = ImageLnk::getImageInfo($url);
+    $this->assertSame($expect, $actual);
+  }
 }
