@@ -141,7 +141,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://lockerz.com/s/71921454';
     $title = "Lockerz.com : Butternekojump's Photo";
     $imageurls = array(
-      'http://c0013619.cdn1.cloudfiles.rackspacecloud.com/x2_4496f2e',
+      'http://c0013619.r32.cf1.rackcdn.com/x2_4496f2e',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -714,5 +714,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $expect = NULL;
     $actual = ImageLnk::getImageInfo($url);
     $this->assertSame($expect, $actual);
+  }
+
+  // ======================================================================
+  function test_cookpad1() {
+    $url = 'http://cookpad.com/recipe/720203';
+    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが107万品';
+    $imageurls = array(
+      'http://d3921.cpcdn.com/recipes/720203/280/24ece10f66b104ef0562b0b2f477d49f.jpg?u=887658&p=1232792798',
+      );
+    $this->check_response($url, $title, $imageurls);
   }
 }

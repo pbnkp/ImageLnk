@@ -16,7 +16,7 @@ class ImageLnkResponse {
   }
 
   public function setTitle($newvalue) {
-    $this->title_ = self::decode($newvalue);
+    $this->title_ = trim(self::decode($newvalue));
   }
   public function getTitle() {
     return $this->title_;
