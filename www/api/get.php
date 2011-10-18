@@ -14,6 +14,7 @@ class ImageLnkAPI_get {
       if ($response) {
         $info['title']     = $response->getTitle();
         $info['referer']   = $response->getReferer();
+        $info['backlink']  = $response->getBackLink();
         $info['imageurls'] = $response->getImageURLs();
       }
     }

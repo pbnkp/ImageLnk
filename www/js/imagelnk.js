@@ -14,6 +14,7 @@ jQuery(function() {
                                         jQuery('#showinfo_result_pageurl').text('Loading...');
                                         jQuery('#showinfo_result_title').text('Loading...');
                                         jQuery('#showinfo_result_referer').text('Loading...');
+                                        jQuery('#showinfo_result_backlink').text('Loading...');
                                         jQuery('#showinfo_result_imageurls').text('Loading...');
 
                                         if (jQuery('#showinfo_result').css('display') != 'none') {
@@ -28,11 +29,13 @@ jQuery(function() {
                                                        function(data) {
                                                            if (data.title     == undefined) { data.title     = 'N/A'; }
                                                            if (data.referer   == undefined) { data.referer   = 'N/A'; }
+                                                           if (data.backlink  == undefined) { data.backlink  = 'N/A'; }
                                                            if (data.imageurls == undefined) { data.imageurls = ['N/A']; }
 
                                                            jQuery('#showinfo_result_pageurl').text(data.pageurl);
                                                            jQuery('#showinfo_result_title').text(data.title);
                                                            jQuery('#showinfo_result_referer').text(data.referer);
+                                                           jQuery('#showinfo_result_backlink').text(data.backlink);
                                                            var imageurls = '';
                                                            var length = data.imageurls.length;
                                                            for (var i = 0; i < length; ++i) {
