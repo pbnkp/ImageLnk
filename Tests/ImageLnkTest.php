@@ -9,7 +9,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     ImageLnkConfig::set('cache_expire_minutes', 30);
   }
 
-  private function check_response($url, $title, $imageurls, $referer = NULL) {
+  private function check_response($url, $title, $imageurls, $referer = NULL, $backlink = NULL) {
     $response = ImageLnk::getImageInfo($url);
 
     $expect = $title;
@@ -26,6 +26,12 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $expect = $referer;
     $actual = $response->getReferer();
     $this->assertSame($expect, $actual);
+
+    if ($backlink !== NULL) {
+      $expect = $backlink;
+      $actual = $response->getBackLink();
+      $this->assertSame($expect, $actual);
+    }
   }
 
   // ======================================================================
@@ -193,6 +199,16 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       'http://image.itmedia.co.jp/nl/articles/1106/02/l_ky_robo_0602_5.jpg',
       );
     $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_itmedia3() {
+    $url = 'http://image.itmedia.co.jp/l/im/mobile/articles/1110/14/l_os_appsomm03.jpg';
+    $title = '“普通の女性”目線で厳選したスマートフォンアプリ紹介サイト「アプリソムリエ」';
+    $imageurls = array(
+      'http://image.itmedia.co.jp/mobile/articles/1110/14/l_os_appsomm03.jpg',
+      );
+    $backlink = 'http://plusd.itmedia.co.jp/mobile/articles/1110/14/news142.html#l_os_appsomm03.jpg';
+    $this->check_response($url, $title, $imageurls, NULL, $backlink);
   }
 
   // ======================================================================

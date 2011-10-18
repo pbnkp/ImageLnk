@@ -4,6 +4,7 @@ class ImageLnkResponse {
   private $title_ = '';
   private $referer_ = '';
   private $imageurls_ = array();
+  private $backlink_ = '';
 
   private static function normalize($string) {
     return @iconv("UTF-8", "UTF-8//IGNORE", $string);
@@ -34,5 +35,12 @@ class ImageLnkResponse {
   }
   public function getReferer() {
     return $this->referer_;
+  }
+
+  public function setBackLink($newvalue) {
+    $this->backlink_ = self::normalize($newvalue);
+  }
+  public function getBackLink() {
+    return $this->backlink_;
   }
 }
