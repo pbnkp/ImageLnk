@@ -177,7 +177,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
     foreach ($response->getImageURLs() as $imageurl) {
       $expect = 1;
-      $actual = preg_match('/^http:\/\/s3\.amazonaws\.com\/twitpic\/photos\/full\/118340730\.jpg/', $imageurl);
+      $actual = preg_match('%^http://s3\.amazonaws\.com/twitpic/photos/full/118340730\.jpg%', $imageurl);
       $this->assertSame($expect, $actual);
     }
   }
@@ -222,9 +222,11 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
+  private $pixiv_author_ = '柴系＠ティア98【さ03ｂ】';
+
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
-    $title = '「凛として鼻血」/「柴系」のイラスト [pixiv]';
+    $title = "「凛として鼻血」/「{$this->pixiv_author_}」のイラスト [pixiv]";
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/10461576.png',
       );
@@ -234,7 +236,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv2() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=big&illust_id=10461576';
-    $title = '「凛として鼻血」/「柴系」のイラスト [pixiv]';
+    $title = "「凛として鼻血」/「{$this->pixiv_author_}」のイラスト [pixiv]";
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/10461576.png',
       );
@@ -253,7 +255,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv4() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=manga_big&illust_id=18741440&page=1';
-    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $title = "「ははのひとってもマミさん【まどか☆マギカ】」/「{$this->pixiv_author_}」の漫画 [pixiv]";
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/18741440_big_p1.png',
       );
@@ -262,7 +264,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv5() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=18741440';
-    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $title = "「ははのひとってもマミさん【まどか☆マギカ】」/「{$this->pixiv_author_}」の漫画 [pixiv]";
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/18741440_big_p0.png',
       );
@@ -272,7 +274,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_pixiv6() {
     $url = 'http://touch.pixiv.net/member_illust.php?mode=medium&illust_id=18741440';
-    $title = '「ははのひとってもマミさん【まどか☆マギカ】」/「柴系」の漫画 [pixiv]';
+    $title = "「ははのひとってもマミさん【まどか☆マギカ】」/「{$this->pixiv_author_}」の漫画 [pixiv]";
     $imageurls = array(
       'http://img11.pixiv.net/img/taishi22/18741440_big_p0.png',
       );
@@ -735,7 +737,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_cookpad1() {
     $url = 'http://cookpad.com/recipe/720203';
-    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが107万品';
+    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが108万品';
     $imageurls = array(
       'http://d3921.cpcdn.com/recipes/720203/280/24ece10f66b104ef0562b0b2f477d49f.jpg?u=887658&p=1232792798',
       );
