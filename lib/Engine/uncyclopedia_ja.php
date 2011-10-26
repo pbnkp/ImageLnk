@@ -5,7 +5,8 @@ class ImageLnkEngine_uncyclopedia_ja {
   const sitename = 'http://ja.uncyclopedia.info/';
 
   public static function handle($url) {
-    if (! preg_match('|^http://ja.uncyclopedia.info/wiki/.+|', $url, $matches)) {
+    if (! preg_match('|^http://ja.uncyclopedia.info/wiki/.+|', $url, $matches) &&
+        ! preg_match('|^http://ansaikuropedia.org/wiki/.+|', $url, $matches)) {
       return FALSE;
     }
 

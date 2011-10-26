@@ -648,6 +648,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->check_response($url, $title, $imageurls);
   }
 
+  function test_uncyclopedia_ja3() {
+    $url = 'http://ansaikuropedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:GRP_0258.JPG';
+    $title = 'ファイル:GRP 0258.JPG - アンサイクロペディア';
+    $imageurls = array(
+      'http://images.uncyc.org/ja/f/f4/GRP_0258.JPG',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
   // ======================================================================
   function test_news_livedoor_com1() {
     $url = 'http://news.livedoor.com/article/image_detail/5786423/?img_id=2118390';
