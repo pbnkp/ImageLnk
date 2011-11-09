@@ -133,16 +133,6 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  function test_mycom1() {
-    $url = 'http://journal.mycom.co.jp/photo/articles/2011/03/07/appinventor/images/006l.jpg';
-    $title = '拡大画像 006 | 【ハウツー】経験ゼロでも大丈夫!? App Inventorで始めるAndroidアプリ開…… | マイコミジャーナル';
-    $imageurls = array(
-      'http://j.mycom.jp/articles/2011/03/07/appinventor/images/006l.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  // ======================================================================
   function test_lockerz1() {
     $url = 'http://lockerz.com/s/71921454';
     $title = "Lockerz.com : Butternekojump's Photo";
@@ -222,7 +212,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  private $pixiv_author_ = '柴系＠ティア98【さ03ｂ】';
+  private $pixiv_author_ = '柴系';
 
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
@@ -297,7 +287,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://www.youtube.com/watch?v=Tlmho7SY-ic&feature=player_embedded';
     $title = 'YouTube Turns Five!';
     $imageurls = array(
-      'http://i1.ytimg.com/vi/Tlmho7SY-ic/default.jpg',
+      'http://i1.ytimg.com/vi/Tlmho7SY-ic/hqdefault.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -420,7 +410,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_picasa1() {
     $url = 'https://picasaweb.google.com/100474803495183280561/CatMagic#5516583424278584290';
-    $title = 'Picasa Web Albums - 触れる猫カフェCatmagic@新... - Cat Magic';
+    $title = 'Picasa Web Albums - Maho Nekonomahou - Cat Magic';
     $imageurls = array(
       'http://lh6.ggpht.com/-aLmbGb0QF3k/TI7XZXHu2-I/AAAAAAAAAFY/KVW0kHhTe44/002.jpg',
       );
@@ -430,7 +420,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_picasa2() {
     $url = 'http://picasaweb.google.com/100474803495183280561/CatMagic#5516583424278584290';
-    $title = 'Picasa Web Albums - 触れる猫カフェCatmagic@新... - Cat Magic';
+    $title = 'Picasa Web Albums - Maho Nekonomahou - Cat Magic';
     $imageurls = array(
       'http://lh6.ggpht.com/-aLmbGb0QF3k/TI7XZXHu2-I/AAAAAAAAAFY/KVW0kHhTe44/002.jpg',
       );
@@ -746,10 +736,31 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_cookpad1() {
     $url = 'http://cookpad.com/recipe/720203';
-    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが108万品';
+    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが109万品';
     $imageurls = array(
       'http://d3921.cpcdn.com/recipes/720203/280/24ece10f66b104ef0562b0b2f477d49f.jpg?u=887658&p=1232792798',
       );
     $this->check_response($url, $title, $imageurls);
   }
+
+  // ======================================================================
+  function test_mynavi1() {
+    $url = 'http://news.mynavi.jp/photo/news/2011/11/08/008/images/005l.jpg';
+    $title = '拡大画像 005 | サイボウズ、クラウド基盤「cybozu.com」の運用を開始しPaaSを提供 | マイナビニュース';
+    $imageurls = array(
+      'http://news.mynavi.jp/news/2011/11/08/008/images/005l.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_mynavi2() {
+    $url = 'http://news.mynavi.jp/photo/articles/2011/03/07/appinventor/images/006l.jpg';
+    $title = '拡大画像 006 | 【ハウツー】経験ゼロでも大丈夫!? App Inventorで始めるAndroidアプリ開…… | マイナビニュース';
+    $imageurls = array(
+      'http://news.mynavi.jp/articles/2011/03/07/appinventor/images/006l.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+
 }
