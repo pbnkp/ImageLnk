@@ -17,8 +17,8 @@ class ImageLnkEngine_twipple {
     $response->setReferer($url);
 
     $response->setTitle(ImageLnkHelper::getTitle($html));
-    if (preg_match('/<a href="(http:\/\/p\.twipple\.jp\/data\/.+?)">/', $html, $matches)) {
-      $response->addImageURL($matches[1]);
+    if (preg_match('%<a .*href="(/show/orig/.+?)">%s', $html, $matches)) {
+      $response->addImageURL('http://p.twipple.jp' . $matches[1]);
     }
 
     return $response;

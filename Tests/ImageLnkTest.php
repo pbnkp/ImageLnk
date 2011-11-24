@@ -112,6 +112,15 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->check_response($url, $title, $imageurls);
   }
 
+  function test_ascii2() {
+    $url = 'http://weekly.ascii.jp/elem/000/000/066/66769/';
+    $title = 'ThinkPad Tabletに3G版が登場！　しかもSIMフリーだと!?';
+    $imageurls = array(
+      'http://weekly.ascii.jp/elem/000/000/066/66769/lenovo_sim_free03_cs1e1_x1000.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
   // ======================================================================
   function test_akibablog1() {
     $url = 'http://node3.img3.akibablog.net/11/may/1/real-qb/119.html';
@@ -212,7 +221,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  private $pixiv_author_ = '柴系';
+  private $pixiv_author_ = '柴系＠もう恐３【まどほむ24】';
 
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
@@ -346,7 +355,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://p.twipple.jp/6FGRA';
     $title = 'オレもマジでつぶやき内容に注意しよう&h... : ついっぷるフォト';
     $imageurls = array(
-      'http://p.twipple.jp/data/6/F/G/R/A.jpg',
+      'http://p.twipple.jp/show/orig/6FGRA',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -669,7 +678,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_twitter1() {
     $url = 'http://twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: Masafumi[内閣総理大臣]: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = 'twitter: Masafumi: 定期的に貼っておこう。 http://t.co/rvCK9mr';
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -679,7 +688,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_twitter2() {
     $url = 'https://twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: Masafumi[内閣総理大臣]: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = 'twitter: Masafumi: 定期的に貼っておこう。 http://t.co/rvCK9mr';
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -689,7 +698,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_twitter3() {
     $url = 'https://mobile.twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: Masafumi[内閣総理大臣]: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = 'twitter: Masafumi: 定期的に貼っておこう。 http://t.co/rvCK9mr';
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
