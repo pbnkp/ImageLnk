@@ -34,6 +34,12 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     }
   }
 
+  private function expect_false($url) {
+    $expect = FALSE;
+    $actual = ImageLnk::getImageInfo($url);
+    $this->assertSame($expect, $actual);
+  }
+
   // ======================================================================
   function test_test1() {
     $url = 'test://malformed_utf8';
@@ -517,19 +523,19 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   // ======================================================================
   function test_engadget1() {
-    $url = 'http://www.engadget.com/photos/ubeam-wireless-power-demonstration-hands-on-at-d9/#4179665';
+    $url = 'http://www.engadget.com/photos/ubeam-wireless-power-demonstration-hands-on-at-d9/';
     $title = 'uBeam wireless power demonstration hands-on at D9 - Engadget Galleries';
     $imageurls = array(
-      'http://www.blogcdn.com/www.engadget.com/media/2011/06/ubeam-demo-hands-on-d92877.jpg',
+      'http://www.blogcdn.com/www.engadget.com/media/2011/06/ubeam-demo-hands-on-d92888.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
 
   function test_engadget2() {
-    $url = 'http://www.engadget.com/photos/intels-computex-2011-keynote/#4176987';
+    $url = 'http://www.engadget.com/photos/intels-computex-2011-keynote/';
     $title = "Intel's Computex 2011 keynote - Engadget Galleries";
     $imageurls = array(
-      'http://www.blogcdn.com/www.engadget.com/media/2011/05/11a531416e6.jpg',
+      'http://www.blogcdn.com/www.engadget.com/media/2011/05/11a531403e6.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -745,7 +751,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_cookpad1() {
     $url = 'http://cookpad.com/recipe/720203';
-    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが109万品';
+    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが110万品';
     $imageurls = array(
       'http://d3921.cpcdn.com/recipes/720203/280/24ece10f66b104ef0562b0b2f477d49f.jpg?u=887658&p=1232792798',
       );
@@ -769,5 +775,35 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
       'http://news.mynavi.jp/articles/2011/03/07/appinventor/images/006l.jpg',
       );
     $this->check_response($url, $title, $imageurls);
+  }
+
+  // ======================================================================
+  function test_amazon1() {
+    $url = 'http://www.amazon.com/gp/product/B005BE0BNQ/';
+    $title = 'Amazon.com: Palm Pixi Plus GSM with WebOS, Touch Screen, 2 MP Camera and Wi-Fi - Unlocked Phone - US Warranty - Black: Cell Phones & Accessories';
+    $imageurls = array(
+      'http://ecx.images-amazon.com/images/I/41XppCzaL6L._SL500_AA300_.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_amazon2() {
+    $url = 'http://ecx.images-amazon.com/images/I/41XppCzaL6L._SL500_AA300_.jpg';
+    $this->expect_false($url);
+  }
+
+  // ======================================================================
+  function test_amazon_jp1() {
+    $url = 'http://www.amazon.co.jp/gp/product/B006FCG96G/';
+    $title = 'Amazon.co.jp： ピュアニーモキャラクターシリーズ 魔法少女まどか☆マギカ 暁美ほむら 制服Ver.: ホビー';
+    $imageurls = array(
+      'http://ec2.images-amazon.com/images/I/41PpQnkCaoL._SL500_AA300_.jpg',
+      );
+    $this->check_response($url, $title, $imageurls);
+  }
+
+  function test_amazon_jp2() {
+    $url = 'http://ec2.images-amazon.com/images/I/41PpQnkCaoL._SL500_AA300_.jpg';
+    $this->expect_false($url);
   }
 }

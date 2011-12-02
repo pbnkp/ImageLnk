@@ -1,11 +1,11 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
-class ImageLnkEngine_engadget {
+class ImageLnkEngine_amazon {
   const language = NULL;
-  const sitename = 'http://www.engadget.com/galleries/';
+  const sitename = 'http://www.amazon.com/';
 
   public static function handle($url) {
-    if (! preg_match('%^http://www\.engadget\.com/photos/%', $url)) {
+    if (! preg_match('%^http://www\.amazon\.com/%', $url)) {
       return FALSE;
     }
 
@@ -18,16 +18,19 @@ class ImageLnkEngine_engadget {
 
     $response->setTitle(ImageLnkHelper::getTitle($html));
 
-    if (preg_match('%<ul class="ad-thumb-list">(.*?)</ul>%s', $html, $matches)) {
-      foreach (ImageLnkHelper::scanSingleTag('a', $matches[1]) as $img) {
-        if (preg_match('/ href="(.+?)"/', $img, $m)) {
+    foreach (ImageLnkHelper::scanSingleTag('img', $html) as $img) {
+      if (preg_match('% id="prodImage"%s', $img)) {
+        if (preg_match('% src="(.+?)"%s', $img, $m)) {
           $response->addImageURL($m[1]);
-          break;
         }
       }
+    }
+
+    if (count($response->getImageURLs()) == 0) {
+      return FALSE;
     }
 
     return $response;
   }
 }
-ImageLnkEngine::push('ImageLnkEngine_engadget');
+ImageLnkEngine::push('ImageLnkEngine_amazon');
