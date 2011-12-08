@@ -150,7 +150,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_lockerz1() {
     $url = 'http://lockerz.com/s/71921454';
-    $title = "Lockerz.com : Butternekojump's Photo";
+    $title = "Butternekojump's Photo | Lockerz";
     $imageurls = array(
       'http://c0013619.r32.cf1.rackcdn.com/x2_4496f2e',
       );
@@ -182,7 +182,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
     foreach ($response->getImageURLs() as $imageurl) {
       $expect = 1;
-      $actual = preg_match('%^http://s3\.amazonaws\.com/twitpic/photos/full/118340730\.jpg%', $imageurl);
+      $actual = preg_match('%/full/%', $imageurl);
       $this->assertSame($expect, $actual);
     }
   }
@@ -617,15 +617,6 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   function test_zakzak4() {
-    $url = 'http://www.zakzak.co.jp/campaigngirl/j-beauty/photos/20110518/jbt1105181611000-p1.htm';
-    $title = '株主様になってください！「オトメ☆コーポレーション」ゆうこ  - キャンギャル・イベント - ZAKZAK';
-    $imageurls = array(
-      'http://www.zakzak.co.jp/campaigngirl/j-beauty/images/20110518/jbt1105181611000-p1.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  function test_zakzak5() {
     $url = 'http://www.zakzak.co.jp/gravure/idol/photos/20110806/idl1108061505000-p12.htm';
     $title = '巨乳れい、運動会でおっぱいモミモミ！  - グラビアアイドル - ZAKZAK';
     $imageurls = array(
