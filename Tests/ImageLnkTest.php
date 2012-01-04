@@ -361,7 +361,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://p.twipple.jp/6FGRA';
     $title = 'オレもマジでつぶやき内容に注意しよう&h... : ついっぷるフォト';
     $imageurls = array(
-      'http://p.twipple.jp/show/orig/6FGRA',
+      'http://p.twpl.jp/show/orig/6FGRA',
       );
     $this->check_response($url, $title, $imageurls);
   }
