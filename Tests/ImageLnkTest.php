@@ -227,7 +227,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  private $pixiv_author_ = '柴系＠もう恐３【まどほむ24】';
+  private $pixiv_author_ = '柴系＠C81【委託頒布】';
 
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
@@ -590,15 +590,6 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   // ======================================================================
   function test_zakzak1() {
-    $url = 'http://www.zakzak.co.jp/zakspa/photos/20110624/zsp1106241001002-p1.htm';
-    $title = '元ＡＶ女優「ミニスカ信仰」に異を唱えるショーパンのエロス  - ZAK×SPA！ - ZAKZAK';
-    $imageurls = array(
-      'http://www.zakzak.co.jp/zakspa/images/20110624/zsp1106241001002-p1.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  function test_zakzak2() {
     $url = 'http://www.zakzak.co.jp/gravure/idol/photos/20110627/idl1106271244001-p1.htm';
     $title = '１６歳の森野朝美、スレンダーボディー炸裂にドキッ  - グラビアアイドル - ZAKZAK';
     $imageurls = array(
@@ -607,16 +598,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $this->check_response($url, $title, $imageurls);
   }
 
-  function test_zakzak3() {
-    $url = 'http://www.zakzak.co.jp/zakspa/photos/20110627/zsp1106271227001-p1.htm';
-    $title = '【物欲刺激度】これなら３Ｄを楽しむ気になる！？  - ZAK×SPA！ - ZAKZAK';
-    $imageurls = array(
-      'http://www.zakzak.co.jp/zakspa/images/20110627/zsp1106271227001-p1.jpg',
-      );
-    $this->check_response($url, $title, $imageurls);
-  }
-
-  function test_zakzak4() {
+  function test_zakzak2() {
     $url = 'http://www.zakzak.co.jp/gravure/idol/photos/20110806/idl1108061505000-p12.htm';
     $title = '巨乳れい、運動会でおっぱいモミモミ！  - グラビアアイドル - ZAKZAK';
     $imageurls = array(
@@ -742,7 +724,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_cookpad1() {
     $url = 'http://cookpad.com/recipe/720203';
-    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが110万品';
+    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが111万品';
     $imageurls = array(
       'http://d3921.cpcdn.com/recipes/720203/280/24ece10f66b104ef0562b0b2f477d49f.jpg?u=887658&p=1232792798',
       );
