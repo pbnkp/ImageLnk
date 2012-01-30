@@ -1,7 +1,7 @@
 <?php //-*- Mode: php; indent-tabs-mode: nil; -*-
 
 class ImageLnkEngine_uncyclopedia_ja {
-  const language = NULL;
+  const language = 'Japanese';
   const sitename = 'http://ja.uncyclopedia.info/';
 
   public static function handle($url) {
