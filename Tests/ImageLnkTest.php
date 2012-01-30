@@ -172,7 +172,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://twitpic.com/1yggai';
     $response = ImageLnk::getImageInfo($url);
 
-    $title = '良くお休みのようで';
+    $title = '良くお休みのようで on Twitpic';
     $actual = $response->getTitle();
     $this->assertSame($title, $actual);
 
@@ -227,7 +227,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
-  private $pixiv_author_ = '柴系＠C81【委託頒布】';
+  private $pixiv_author_ = '柴系＠ティア99【い12ｂ】';
 
   function test_pixiv1() {
     $url = 'http://www.pixiv.net/member_illust.php?mode=medium&illust_id=10461576';
@@ -417,7 +417,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://maegamipattun.tumblr.com/post/7815975799';
     $title = '前髪ぱっつん専用タンブラー';
     $imageurls = array(
-      'http://www.tumblr.com/photo/1280/7815975799/1/tumblr_l1n113Lyub1qaxrtk',
+      'http://www.tumblr.com/photo/1280/maegamipattun/7815975799/1/tumblr_l1n113Lyub1qaxrtk',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -655,9 +655,10 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   }
 
   // ======================================================================
+  private $twitter_author_ = "みやびファントム（実際ちゃんとした版）";
   function test_twitter1() {
     $url = 'http://twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: Masafumi: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = "twitter: {$this->twitter_author_}: 定期的に貼っておこう。 http://t.co/rvCK9mr";
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -667,7 +668,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_twitter2() {
     $url = 'https://twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: Masafumi: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = "twitter: {$this->twitter_author_}: 定期的に貼っておこう。 http://t.co/rvCK9mr";
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -677,7 +678,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
 
   function test_twitter3() {
     $url = 'https://mobile.twitter.com/#!/miyabiarts/status/112889718550691840';
-    $title = 'twitter: Masafumi: 定期的に貼っておこう。 http://t.co/rvCK9mr';
+    $title = "twitter: {$this->twitter_author_}: 定期的に貼っておこう。 http://t.co/rvCK9mr";
     $imageurls = array(
       'http://p.twimg.com/AZEQmdUCAAETlsu.jpg',
       );
@@ -690,7 +691,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
     $url = 'http://itunes.apple.com/jp/album/muscle-march-original-soundtrack/id455935658?l=en';
     $title = 'iTunes - Music - Muscle March Original Soundtrack by Namco Sounds';
     $imageurls = array(
-      'http://a3.mzstatic.com/us/r1000/084/Music/87/7a/56/mzi.vzoqpscv.170x170-75.jpg',
+      'http://a1.mzstatic.com/us/r20/Music/87/7a/56/mzi.vzoqpscv.170x170-75.jpg',
       );
     $this->check_response($url, $title, $imageurls);
   }
@@ -724,7 +725,7 @@ class ImageLnkTest extends PHPUnit_Framework_TestCase {
   // ======================================================================
   function test_cookpad1() {
     $url = 'http://cookpad.com/recipe/720203';
-    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが111万品';
+    $title = '大根とツナとホタテのサラダ♪ by ともにゃんママ [クックパッド] 簡単おいしいみんなのレシピが112万品';
     $imageurls = array(
       'http://d3921.cpcdn.com/recipes/720203/280/24ece10f66b104ef0562b0b2f477d49f.jpg?u=887658&p=1232792798',
       );
